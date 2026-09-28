@@ -49,6 +49,10 @@
   grid-column: span 3;
 }
 
+.apple-bento-card:nth-child(7) {
+  grid-column: span 3;
+}
+
 .apple-bento-top {
   display: flex;
   justify-content: space-between;
@@ -166,7 +170,8 @@
   }
   .apple-bento-card.featured-apple-card:first-child,
   .apple-bento-card.featured-apple-card:nth-child(2),
-  .apple-bento-card.featured-apple-card:nth-child(3) {
+  .apple-bento-card.featured-apple-card:nth-child(3),
+  .apple-bento-card:nth-child(7) {
     grid-column: span 1;
   }
 }

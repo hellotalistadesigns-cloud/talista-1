@@ -7,6 +7,7 @@ import {
   Palette, 
   Share2, 
   Sparkles, 
+  Package,
   ChevronRight,
   Check
 } from 'lucide-react';
@@ -23,6 +24,8 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
         return <Globe className="apple-bento-icon" />;
       case 'graphic-design':
         return <Palette className="apple-bento-icon" />;
+      case 'packaging':
+        return <Package className="apple-bento-icon" />;
       case 'social-creative':
         return <Share2 className="apple-bento-icon" />;
       case 'ugc-content':

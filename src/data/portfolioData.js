@@ -122,6 +122,14 @@ export const studioCapabilities = [
     deliverables: ['Figma Design Systems', 'Editorial Carousels', 'Story & Post Templates', 'Content Style Guides']
   },
   {
+    id: 'packaging',
+    featured: false,
+    title: 'Packaging & Unboxing Architecture',
+    tagline: 'Tactile physical materials and photorealistic 3D renders.',
+    description: 'Bespoke bottle, box, and label design paired with hyper-realistic 3D CGI rendering to create unboxing moments that drive customer retention.',
+    deliverables: ['Custom Structural Packaging', 'Photorealistic 3D CGI', 'Luxury Print Finishing', 'Unboxing Reel Directing']
+  },
+  {
     id: 'ugc-content',
     featured: false,
     title: 'UGC & Creator Directing',

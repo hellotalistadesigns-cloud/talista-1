@@ -47,7 +47,7 @@ export default function Footer() {
         {/* Legal & Copyright */}
         <div className="apple-legal-row">
           <div className="legal-left">
-            <span>Copyright © {new Date().getFullYear()} Talista Studios Inc. All rights reserved.</span>
+            <span>Copyright © {new Date().getFullYear()} Talista Studios. All rights reserved. India &amp; Worldwide.</span>
             <div className="legal-links">
               <a href="#">Privacy Policy</a>
               <span className="legal-sep">|</span>

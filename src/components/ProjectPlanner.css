@@ -28,83 +28,102 @@
 }
 
 .apple-config-box {
-  padding: 38px;
+  padding: 40px;
   border-radius: var(--radius-lg);
   background: var(--bg-card);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .config-step {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .step-label-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .step-tag {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--apple-blue);
-  background: rgba(0, 113, 227, 0.1);
-  padding: 3px 8px;
+  background: rgba(0, 113, 227, 0.12);
+  border: 1px solid rgba(0, 113, 227, 0.25);
+  padding: 3px 10px;
   border-radius: var(--radius-xs);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .step-text {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
+/* Service Options Pill List */
 .apple-pill-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .apple-option-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  color: var(--ink-secondary);
+  gap: 10px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 0.84rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: var(--transition-apple);
+  user-select: none;
 }
 
 .apple-option-pill:hover {
-  border-color: var(--panel-border-hover);
-  color: var(--ink);
+  border-color: var(--input-border-hover);
+  background: var(--panel-hover);
+  transform: translateY(-1px);
 }
 
 .apple-option-pill.selected {
-  background: rgba(0, 113, 227, 0.12);
+  background: rgba(0, 113, 227, 0.15);
+  border-color: var(--apple-blue);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 113, 227, 0.25);
+}
+
+[data-theme="light"] .apple-option-pill.selected {
+  background: rgba(0, 113, 227, 0.1);
   border-color: var(--apple-blue);
   color: var(--apple-blue);
 }
 
 .radio-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  border: 1px solid var(--panel-border);
+  border: 1.5px solid var(--ink-tertiary);
+  transition: var(--transition-apple);
+  flex-shrink: 0;
 }
 
 .radio-dot.active {
   background: var(--apple-blue);
   border-color: var(--apple-blue);
+  box-shadow: 0 0 8px var(--apple-blue);
 }
 
+/* Dual Select & Inputs */
 .dual-select-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -114,101 +133,139 @@
 .select-container {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .select-caption {
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   color: var(--ink-secondary);
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .apple-input {
   width: 100%;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  padding: 14px 18px;
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 0.94rem;
+  font-weight: 400;
+  outline: none;
   transition: var(--transition-apple);
 }
 
+.apple-input:hover {
+  border-color: var(--input-border-hover);
+}
+
 .apple-input:focus {
-  outline: none;
   border-color: var(--apple-blue);
-  background: var(--panel-hover);
+  background-color: var(--input-bg);
   box-shadow: 0 0 0 3px var(--apple-blue-glow);
+}
+
+/* Custom Select Dropdown with Clean SVG Chevron */
+.apple-input.apple-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f7' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px 16px;
+}
+
+[data-theme="light"] .apple-input.apple-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.apple-input.apple-select option {
+  background-color: var(--option-bg);
+  color: var(--ink);
+  font-size: 0.94rem;
+  padding: 12px 16px;
 }
 
 .apple-input.textarea {
   resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
 }
 
 .apple-submit-btn {
   width: 100%;
-  padding: 14px;
-  font-size: 0.96rem;
-  margin-top: 8px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 12px;
+  box-shadow: 0 4px 20px var(--apple-blue-glow);
 }
 
 /* Success State */
 .apple-success-state {
   text-align: center;
-  padding: 40px 20px;
+  padding: 48px 24px;
 }
 
 .apple-check-circle {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   background: rgba(48, 209, 88, 0.15);
+  border: 1px solid rgba(48, 209, 88, 0.3);
   color: #30d158;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 24px;
+  box-shadow: 0 0 20px rgba(48, 209, 88, 0.2);
 }
 
 .success-h3 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .success-body {
   color: var(--ink-secondary);
-  font-size: 1rem;
-  max-width: 480px;
+  font-size: 1.05rem;
+  max-width: 500px;
   margin: 0 auto;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* Direct Channels */
 .apple-direct-channels {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .apple-channel-card {
-  padding: 30px;
+  padding: 32px;
   border-radius: var(--radius-lg);
   background: var(--bg-card);
+  border: 1px solid var(--panel-border);
 }
 
 .channel-card-title {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .channel-card-sub {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--ink-secondary);
   line-height: 1.5;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .apple-channels-list {
@@ -221,10 +278,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-radius: var(--radius-sm);
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  transition: var(--transition-apple);
+}
+
+.apple-channel-row:hover {
+  border-color: var(--input-border-hover);
 }
 
 .channel-meta {
@@ -233,16 +295,17 @@
 }
 
 .meta-label {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   color: var(--ink-tertiary);
   font-weight: 700;
   letter-spacing: 0.06em;
+  margin-bottom: 2px;
 }
 
 .meta-link {
   color: var(--ink);
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
   transition: color 0.2s ease;
 }
@@ -252,16 +315,22 @@
 }
 
 .apple-copy-btn {
-  background: none;
-  border: none;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-xs);
   color: var(--ink-secondary);
   cursor: pointer;
-  padding: 4px;
-  transition: color 0.2s ease;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-apple);
 }
 
 .apple-copy-btn:hover {
   color: var(--apple-blue);
+  border-color: var(--apple-blue);
+  background: rgba(0, 113, 227, 0.1);
 }
 
 .apple-copy-btn .copied {
@@ -269,28 +338,29 @@
 }
 
 .apple-status-card {
-  padding: 24px;
+  padding: 26px;
   border-radius: var(--radius-lg);
   background: var(--bg-card);
+  border: 1px solid var(--panel-border);
 }
 
 .status-top {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .status-text {
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--ink);
 }
 
 .status-desc {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: var(--ink-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {

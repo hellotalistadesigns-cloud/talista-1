@@ -14,7 +14,7 @@ import './ProjectPlanner.css';
 
 export default function ProjectPlanner() {
   const [selectedServices, setSelectedServices] = useState(['Brand Identity & Logo']);
-  const [budgetTier, setBudgetTier] = useState('$5,000 – $10,000');
+  const [budgetTier, setBudgetTier] = useState('₹3,00,000 – ₹6,00,000 (₹3L – ₹6L)');
   const [timeline, setTimeline] = useState('3–4 Weeks');
   const [copiedKey, setCopiedKey] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -36,10 +36,10 @@ export default function ProjectPlanner() {
   ];
 
   const budgetOptions = [
-    '$3,000 – $5,000',
-    '$5,000 – $10,000',
-    '$10,000 – $25,000',
-    '$25,000+'
+    '₹1,50,000 – ₹3,00,000 (₹1.5L – ₹3L)',
+    '₹3,00,000 – ₹6,00,000 (₹3L – ₹6L)',
+    '₹6,00,000 – ₹15,00,000 (₹6L – ₹15L)',
+    '₹15,00,000+ (₹15L+)'
   ];
 
   const timelineOptions = [
@@ -155,11 +155,11 @@ export default function ProjectPlanner() {
 
                   <div className="dual-select-row">
                     <div className="select-container">
-                      <label className="select-caption">Estimated Budget (USD)</label>
+                      <label className="select-caption">Estimated Budget (INR / ₹)</label>
                       <select 
                         value={budgetTier} 
                         onChange={(e) => setBudgetTier(e.target.value)}
-                        className="apple-input select"
+                        className="apple-input apple-select"
                       >
                         {budgetOptions.map(b => (
                           <option key={b} value={b}>{b}</option>
@@ -172,7 +172,7 @@ export default function ProjectPlanner() {
                       <select 
                         value={timeline} 
                         onChange={(e) => setTimeline(e.target.value)}
-                        className="apple-input select"
+                        className="apple-input apple-select"
                       >
                         {timelineOptions.map(t => (
                           <option key={t} value={t}>{t}</option>
@@ -288,10 +288,10 @@ export default function ProjectPlanner() {
             <div className="apple-status-card glass-card">
               <div className="status-top">
                 <span className="pulse-dot" />
-                <span className="status-text">Studio Operating Worldwide</span>
+                <span className="status-text">India Studio · Global Delivery</span>
               </div>
               <p className="status-desc">
-                Serving clients across San Francisco, New York, London, Dubai, and Mumbai. Initial consultations hosted via Google Meet or Zoom.
+                Headquartered in India, serving ambitious brands across Mumbai, Bengaluru, Delhi NCR, Dubai, London, and San Francisco. Initial consultations hosted via Google Meet or Zoom.
               </p>
             </div>
           </div>
