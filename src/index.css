@@ -140,7 +140,7 @@ body {
 
 @media (max-width: 768px) {
   .layout-wrap {
-    padding: 0 18px;
+    padding: 0 16px;
   }
 }
 
@@ -179,13 +179,13 @@ h1, h2, h3, h4, .apple-title {
 
 /* Apple Section Spacing */
 section {
-  padding: 120px 0;
+  padding: 110px 0;
   position: relative;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 75px 0;
+    padding: 60px 0;
   }
 }
 

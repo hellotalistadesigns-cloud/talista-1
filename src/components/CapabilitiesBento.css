@@ -167,11 +167,31 @@
 @media (max-width: 960px) {
   .apple-bento-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
   .apple-bento-card.featured-apple-card:first-child,
   .apple-bento-card.featured-apple-card:nth-child(2),
   .apple-bento-card.featured-apple-card:nth-child(3),
   .apple-bento-card:nth-child(7) {
     grid-column: span 1;
+  }
+  .apple-cap-header {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .apple-bento-card {
+    padding: 22px 18px;
+  }
+  .apple-bento-h3 {
+    font-size: 1.28rem;
+  }
+  .apple-bento-desc {
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+  .apple-bento-specs {
+    padding: 12px;
   }
 }

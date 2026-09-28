@@ -364,13 +364,49 @@
 }
 
 @media (max-width: 900px) {
+  .apple-planner-header {
+    margin-bottom: 36px;
+  }
   .apple-planner-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   .dual-select-row {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
   .apple-config-box {
-    padding: 24px;
+    padding: 26px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .apple-config-box {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+  .config-step {
+    margin-bottom: 24px;
+  }
+  .apple-option-pill {
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  .apple-input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  .apple-channel-card {
+    padding: 22px 18px;
+  }
+  .apple-channel-row {
+    padding: 12px;
+  }
+  .meta-link {
+    font-size: 0.88rem;
+  }
+  .apple-status-card {
+    padding: 20px 18px;
   }
 }

@@ -118,14 +118,27 @@
 }
 
 @media (max-width: 640px) {
+  .apple-process-header {
+    margin-bottom: 32px;
+  }
   .apple-process-pipeline {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .apple-step-card {
+    padding: 22px 18px;
+  }
+  .step-badge-row {
+    margin-bottom: 16px;
   }
   .apple-commitment-banner {
     flex-direction: column;
     text-align: center;
+    padding: 22px 18px;
+    margin-top: 24px;
   }
   .commitment-left {
     flex-direction: column;
+    gap: 14px;
   }
 }

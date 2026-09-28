@@ -121,7 +121,12 @@
     display: none;
   }
   .apple-mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-xs);
   }
   .apple-mobile-overlay {
     display: block;
@@ -131,13 +136,16 @@
     width: 100%;
     height: calc(100vh - 52px);
     background: var(--bg-primary);
-    padding: 30px 24px;
-    animation: fadeIn 0.2s ease;
+    padding: 24px 20px 40px;
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    animation: fadeIn 0.25s ease;
   }
   .apple-mobile-nav {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
   .apple-mobile-link {
     display: flex;
@@ -145,12 +153,22 @@
     align-items: center;
     color: var(--ink);
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
+    transition: var(--transition-apple);
+  }
+  .apple-mobile-link:active {
+    color: var(--apple-blue);
   }
   .chevron-icon {
     color: var(--ink-tertiary);
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-cta-btn {
+    display: none;
   }
 }
