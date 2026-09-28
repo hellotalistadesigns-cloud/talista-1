@@ -14,11 +14,15 @@ export default function Footer() {
         {/* Brand wordmark */}
         <div className="footer-brand reveal">
           <a href="#" className="footer-logo-link" aria-label="Talista Studios">
-            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" className="footer-logo-icon">
-              <rect x="2" y="2" width="12" height="12" rx="3" fill="currentColor" opacity="1"/>
-              <rect x="18" y="2" width="12" height="12" rx="3" fill="currentColor" opacity="0.6"/>
-              <rect x="2" y="18" width="12" height="12" rx="3" fill="currentColor" opacity="0.6"/>
-              <rect x="18" y="18" width="12" height="12" rx="3" fill="currentColor" opacity="0.35"/>
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" className="footer-logo-icon">
+              <rect width="32" height="32" rx="8" fill="#121214" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+              <defs>
+                <linearGradient id="footerGreyT" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#EDEDF0" />
+                  <stop offset="100%" stopColor="#A1A1AA" />
+                </linearGradient>
+              </defs>
+              <path d="M7 7h18v4.5h-6.5v13.5h-5v-13.5H7V7z" fill="url(#footerGreyT)" />
             </svg>
             <span className="footer-wordmark">Talista Studios</span>
           </a>

@@ -17,16 +17,18 @@ export default function WorkGallery({ onSelectProject }) {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
-    card.style.setProperty('--mouse-x', `${x}px`);
-    card.style.setProperty('--mouse-y', `${y}px`);
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -5.5;
-    const rotateY = ((x - centerX) / centerX) * 5.5;
+    window.requestAnimationFrame(() => {
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
 
-    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale3d(1.015, 1.015, 1.015)`;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5.5;
+      const rotateY = ((x - centerX) / centerX) * 5.5;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale3d(1.015, 1.015, 1.015)`;
+    });
   };
 
   const handleCardMouseLeave = (e) => {
@@ -75,13 +77,22 @@ export default function WorkGallery({ onSelectProject }) {
                 onMouseMove={handleCardMouseMove}
                 onMouseLeave={handleCardMouseLeave}
                 onClick={() => onSelectProject(project)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onSelectProject(project);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View case study: ${project.title}, ${project.subtitle}`}
               >
                 <div className="card-image-box curtain-frame">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="card-product-img curtain-img"
-                    loading="eager"
+                    loading={i < 2 ? "eager" : "lazy"}
                     decoding="async"
                   />
                 </div>
@@ -98,7 +109,11 @@ export default function WorkGallery({ onSelectProject }) {
                   </div>
 
                   <div className="card-action-row">
-                    <button className="link-chevron card-link-btn btn-roll">
+                    <button 
+                      className="link-chevron card-link-btn btn-roll" 
+                      tabIndex={-1} 
+                      aria-hidden="true"
+                    >
                       <span className="roll-wrap">
                         <span className="roll-text">View case study</span>
                         <span className="roll-text clone" aria-hidden="true">View case study</span>

@@ -9,61 +9,123 @@ const NAV_LINKS = [
   { name: 'Contact', href: '#contact', id: 'contact' },
 ];
 
-export default function Navbar({ theme, toggleTheme, onOpenPlanner }) {
+export default function Navbar({ theme, toggleTheme, onOpenPlanner, onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
+  // 1. Zero-reflow scroll indicator (only measures scrollY threshold)
   useEffect(() => {
-    let rAFId = null;
     let ticking = false;
-
-    const updateScrollState = () => {
-      const scrollY = window.scrollY;
-      const nextScrolled = scrollY > 20;
-      setIsScrolled((prev) => (prev !== nextScrolled ? nextScrolled : prev));
-
-      let current = 'hero';
-      for (let i = 0; i < NAV_LINKS.length; i++) {
-        const el = document.getElementById(NAV_LINKS[i].id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) {
-            current = NAV_LINKS[i].id;
-          }
-        }
-      }
-      setActiveSection((prev) => (prev !== current ? current : prev));
-      ticking = false;
-    };
-
     const handleScroll = () => {
       if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const nextScrolled = scrollY > 20;
+          setIsScrolled((prev) => (prev !== nextScrolled ? nextScrolled : prev));
+          // Absolute top safeguard: always reset to hero at the top of the page
+          if (scrollY < 80) {
+            setActiveSection('hero');
+          }
+          ticking = false;
+        });
         ticking = true;
-        rAFId = window.requestAnimationFrame(updateScrollState);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    updateScrollState();
+    handleScroll();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rAFId) window.cancelAnimationFrame(rAFId);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 2. High-performance IntersectionObserver for active section detection (zero layout thrashing)
+  useEffect(() => {
+    const sectionElements = NAV_LINKS
+      .map((link) => document.getElementById(link.id))
+      .filter(Boolean);
+
+    if (sectionElements.length === 0) return;
+
+    const visibleEntries = new Map();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleEntries.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visibleEntries.delete(entry.target.id);
+          }
+        });
+
+        // If at top of page, keep hero active
+        if (window.scrollY < 80) {
+          setActiveSection('hero');
+          return;
+        }
+
+        // Select the active section with highest visibility in reading zone
+        let highestId = null;
+        let highestRatio = -1;
+        visibleEntries.forEach((ratio, id) => {
+          if (ratio > highestRatio) {
+            highestRatio = ratio;
+            highestId = id;
+          }
+        });
+
+        if (highestId) {
+          setActiveSection(highestId);
+        }
+      },
+      {
+        rootMargin: '-15% 0px -55% 0px',
+        threshold: [0, 0.1, 0.25, 0.5],
+      }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  // 3. Smooth navigation handler coordinating with Lenis
+  const handleLinkClick = (e, linkId) => {
+    // Allow users to Cmd/Ctrl/Shift/Middle click to open in new tab
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (onNavigate) {
+      onNavigate(linkId);
+    } else {
+      const el = document.getElementById(linkId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className={`apple-navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="layout-wrap navbar-inner">
 
         {/* Brand Wordmark */}
-        <a href="#" className="apple-brand" aria-label="Talista Studios">
-          <svg className="apple-logo-icon" width="22" height="22" viewBox="0 0 32 32" fill="none">
-            <rect x="2" y="2" width="12" height="12" rx="3" fill="currentColor" opacity="1"/>
-            <rect x="18" y="2" width="12" height="12" rx="3" fill="currentColor" opacity="0.6"/>
-            <rect x="2" y="18" width="12" height="12" rx="3" fill="currentColor" opacity="0.6"/>
-            <rect x="18" y="18" width="12" height="12" rx="3" fill="currentColor" opacity="0.35"/>
+        <a 
+          href="#hero" 
+          className="apple-brand" 
+          aria-label="Talista Studios"
+          onClick={(e) => handleLinkClick(e, 'hero')}
+        >
+          <svg className="apple-logo-icon" width="24" height="24" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#121214" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+            <defs>
+              <linearGradient id="navGreyT" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#EDEDF0" />
+                <stop offset="100%" stopColor="#A1A1AA" />
+              </linearGradient>
+            </defs>
+            <path d="M7 7h18v4.5h-6.5v13.5h-5v-13.5H7V7z" fill="url(#navGreyT)" />
           </svg>
           <span className="apple-brand-text">Talista</span>
         </a>
@@ -74,6 +136,7 @@ export default function Navbar({ theme, toggleTheme, onOpenPlanner }) {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.id)}
               className={`apple-nav-item btn-roll ${activeSection === link.id ? 'active' : ''}`}
               aria-current={activeSection === link.id ? 'page' : undefined}
             >
@@ -122,7 +185,7 @@ export default function Navbar({ theme, toggleTheme, onOpenPlanner }) {
                 key={link.name}
                 href={link.href}
                 className="apple-mobile-link"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleLinkClick(e, link.id)}
               >
                 <span>{link.name}</span>
                 <ChevronRight size={16} className="chevron-icon" />

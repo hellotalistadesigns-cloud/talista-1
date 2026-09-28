@@ -95,6 +95,11 @@
   box-shadow: 0 32px 70px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(41, 151, 255, 0.12);
 }
 
+.apple-showcase-card:focus-visible {
+  outline: 2px solid var(--apple-blue);
+  outline-offset: 4px;
+}
+
 .card-image-box {
   position: relative;
   width: 100%;

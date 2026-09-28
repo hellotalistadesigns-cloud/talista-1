@@ -69,15 +69,34 @@ export default function App() {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
-  const handleOpenPlanner = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
+  const handleNavigate = (targetId) => {
+    if (targetId === 'hero') {
       if (lenisRef.current) {
-        lenisRef.current.scrollTo(contactSection);
+        lenisRef.current.scrollTo(0, { duration: 1.2 });
       } else {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+    const section = document.getElementById(targetId);
+    if (section) {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(section, { offset: -60, duration: 1.2 });
+      } else {
+        section.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handleOpenPlanner = () => {
+    if (selectedProject) {
+      setSelectedProject(null);
+      setTimeout(() => {
+        handleNavigate('contact');
+      }, 60);
+      return;
+    }
+    handleNavigate('contact');
   };
 
   return (
@@ -89,7 +108,8 @@ export default function App() {
       <Navbar 
         theme={theme} 
         toggleTheme={toggleTheme} 
-        onOpenPlanner={handleOpenPlanner} 
+        onOpenPlanner={handleOpenPlanner}
+        onNavigate={handleNavigate}
       />
 
       {/* Main Content Sections — Streamlined, Work-First */}

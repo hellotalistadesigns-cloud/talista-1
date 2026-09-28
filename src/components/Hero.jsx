@@ -12,7 +12,11 @@ export default function Hero({ onOpenPlanner, onSelectProject }) {
     const rect = frameRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    frameRef.current.style.transform = `perspective(1200px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+    window.requestAnimationFrame(() => {
+      if (frameRef.current) {
+        frameRef.current.style.transform = `perspective(1200px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+      }
+    });
   };
 
   const handleMouseLeave = () => {
@@ -67,6 +71,15 @@ export default function Hero({ onOpenPlanner, onSelectProject }) {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onClick={() => onSelectProject && onSelectProject(featured)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onSelectProject && onSelectProject(featured);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label={`View featured commission case study: ${featured.title}`}
           title="View The Hooper Case Study"
         >
           <img
