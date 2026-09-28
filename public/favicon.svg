@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#121212"/>
-  <path d="M9 10h14M16 10v12M12 22h8" stroke="#ECC876" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dark Charcoal Squircle to ensure contrast on both light and dark Chrome tabs -->
+  <rect width="32" height="32" rx="8" fill="#121214"/>
+  
+  <!-- Linear Gradient for a Premium Titanium Grey Finish -->
+  <defs>
+    <linearGradient id="greyT" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EDEDF0"/>
+      <stop offset="100%" stop-color="#A1A1AA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Precision-engineered Capital T -->
+  <path d="M7 7h18v4.5h-6.5v13.5h-5v-13.5H7V7z" fill="url(#greyT)"/>
 </svg>
