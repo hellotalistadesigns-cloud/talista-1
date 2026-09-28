@@ -44,6 +44,8 @@ export const portfolioProjects = [
     category: 'Motion & AI Video',
     year: '2026',
     image: '/assets/velocity-motion.jpg',
+    videoUrl: 'https://youtu.be/ceRtL4mu9rI',
+    youtubeId: 'ceRtL4mu9rI',
     accentColor: '#E5C07B',
     client: 'Velocity Automotive & Luxury Performance',
     deliverables: ['3D Liquid Gold Visuals', 'AI Video Ad Reels', 'Audio Soundscape', 'Launch Teaser Campaign'],
@@ -108,10 +110,11 @@ export const studioCapabilities = [
   {
     id: 'motion-ai',
     num: '02',
-    title: '3D & Kinetic Motion',
-    description: 'Cinematic 3D animation and thumb-stopping kinetic reels that drive conversion.',
+    title: '3D Motion & AI Video Ads',
+    description: 'Cinematic 3D animation, spatial audio, and high-converting AI video reels on YouTube.',
     image: '/assets/velocity-motion.jpg',
-    tags: ['3D CGI', 'Kinetic Reels', 'Spatial Audio']
+    tags: ['AI Video Ads', '3D Motion', 'YouTube Reels'],
+    videoUrl: 'https://www.youtube.com/@TalistaStudios'
   },
   {
     id: 'web-dev',
@@ -171,5 +174,44 @@ export const processSteps = [
     title: 'Launch, Guidelines & Handoff',
     timeframe: 'Week 5–6',
     description: 'Complete production-ready exports, interactive design guideline portals, component libraries, and full developer handoff.'
+  }
+];
+
+export const youtubeShowcase = [
+  {
+    id: 'ceRtL4mu9rI',
+    title: "Penguin's Birthday",
+    subtitle: '3D Character Animation & AI Video Ad',
+    type: 'video', // 16:9 Landscape
+    category: 'AI Video Ad',
+    badge: '16:9 4K REEL',
+    url: 'https://youtu.be/ceRtL4mu9rI',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/ceRtL4mu9rI?autoplay=1&rel=0',
+    thumbnail: 'https://img.youtube.com/vi/ceRtL4mu9rI/hqdefault.jpg',
+    duration: 'Full Reel'
+  },
+  {
+    id: 'TD6V2iaktXY',
+    title: 'Kinetic 3D Texture Dynamics',
+    subtitle: 'Viral 9:16 Social Reel',
+    type: 'short', // 9:16 Vertical
+    category: 'YouTube Short',
+    badge: '9:16 SHORTS',
+    url: 'https://www.youtube.com/shorts/TD6V2iaktXY',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/TD6V2iaktXY?autoplay=1&rel=0',
+    thumbnail: 'https://img.youtube.com/vi/TD6V2iaktXY/hqdefault.jpg',
+    duration: 'Shorts'
+  },
+  {
+    id: '2LsEB39TNZY',
+    title: 'Luxury Brand Identity Motion',
+    subtitle: 'Tactile Motion Campaign',
+    type: 'short', // 9:16 Vertical
+    category: 'YouTube Short',
+    badge: '9:16 SHORTS',
+    url: 'https://www.youtube.com/shorts/2LsEB39TNZY',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/2LsEB39TNZY?autoplay=1&rel=0',
+    thumbnail: 'https://img.youtube.com/vi/2LsEB39TNZY/hqdefault.jpg',
+    duration: 'Shorts'
   }
 ];
