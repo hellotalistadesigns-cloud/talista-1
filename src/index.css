@@ -1,0 +1,285 @@
+:root {
+  /* Apple Pro Space Black (Default Keynote Dark) */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0c;
+  --bg-elevated: #161617;
+  --bg-card: #121214;
+  --bg-card-hover: #1c1c1e;
+  
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-hover: rgba(255, 255, 255, 0.07);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --panel-border-hover: rgba(255, 255, 255, 0.24);
+
+  --ink: #f5f5f7;
+  --ink-secondary: #86868b;
+  --ink-tertiary: #6e6e73;
+
+  /* Apple Accents: Electric Blue & Natural Titanium */
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-blue-glow: rgba(0, 113, 227, 0.35);
+  
+  --titanium-gold: #f5e3ca;
+  --titanium-silver: #e3e4e8;
+  --titanium-gradient: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+  --blue-gradient: linear-gradient(135deg, #2997ff 0%, #0071e3 100%);
+  --gold-gradient: linear-gradient(135deg, #f5e3ca 0%, #d4af37 100%);
+  
+  --header-bg: rgba(0, 0, 0, 0.8);
+  --line: rgba(255, 255, 255, 0.08);
+  --badge-bg: rgba(255, 255, 255, 0.08);
+  --badge-text: #f5f5f7;
+  --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  --modal-overlay: rgba(0, 0, 0, 0.75);
+
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Manrope', 'Inter', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 980px;
+  --transition-apple: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+[data-theme="light"] {
+  /* Apple Studio Clean Light */
+  --bg-primary: #f5f5f7;
+  --bg-secondary: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f0f2;
+
+  --panel: rgba(0, 0, 0, 0.03);
+  --panel-hover: rgba(0, 0, 0, 0.05);
+  --panel-border: rgba(0, 0, 0, 0.08);
+  --panel-border-hover: rgba(0, 0, 0, 0.16);
+
+  --ink: #1d1d1f;
+  --ink-secondary: #86868b;
+  --ink-tertiary: #a1a1a6;
+
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-blue-glow: rgba(0, 113, 227, 0.2);
+
+  --titanium-gold: #b38622;
+  --titanium-silver: #515154;
+  --titanium-gradient: linear-gradient(180deg, #1d1d1f 0%, #6e6e73 100%);
+  --blue-gradient: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
+  --gold-gradient: linear-gradient(135deg, #b38622 0%, #8c6411 100%);
+
+  --header-bg: rgba(245, 245, 247, 0.8);
+  --line: rgba(0, 0, 0, 0.08);
+  --badge-bg: rgba(0, 0, 0, 0.05);
+  --badge-text: #1d1d1f;
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  --modal-overlay: rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Apple Ambient Glow (Keynote Spotlight) */
+.ambient-glow {
+  position: fixed;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1400px;
+  height: 800px;
+  background: radial-gradient(circle at 50% 30%, rgba(41, 151, 255, 0.12) 0%, rgba(245, 227, 202, 0.06) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .layout-wrap {
+    padding: 0 18px;
+  }
+}
+
+/* Apple Typography */
+h1, h2, h3, h4, .apple-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.titanium-text {
+  background: var(--titanium-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.blue-text {
+  background: var(--blue-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--apple-blue);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Apple Section Spacing */
+section {
+  padding: 120px 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 75px 0;
+  }
+}
+
+/* Apple Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--apple-blue);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.94rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-apple);
+}
+
+.btn-primary:hover {
+  background: var(--apple-blue-hover);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px var(--apple-blue-glow);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.94rem;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--panel-border);
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-apple);
+}
+
+.btn-ghost:hover {
+  background: var(--panel-hover);
+  border-color: var(--panel-border-hover);
+  color: var(--apple-blue);
+  transform: scale(1.02);
+}
+
+.link-chevron {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--apple-blue);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: gap 0.2s ease;
+}
+
+.link-chevron:hover {
+  text-decoration: underline;
+  gap: 8px;
+}
+
+/* Apple Glass Card */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: var(--transition-apple);
+}
+
+.glass-card:hover {
+  border-color: var(--panel-border-hover);
+  background: var(--bg-card-hover);
+}
+
+/* Apple Pulse Dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #30d158;
+  box-shadow: 0 0 10px #30d158;
+}
+
+/* Apple Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--apple-blue);
+}

@@ -1,0 +1,171 @@
+.apple-hero-section {
+  padding-top: 140px;
+  padding-bottom: 90px;
+  text-align: center;
+  position: relative;
+}
+
+.apple-hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apple-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.eyebrow-tag {
+  color: var(--apple-blue);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.eyebrow-sub {
+  color: var(--ink-secondary);
+}
+
+.apple-hero-headline {
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.apple-hero-sub {
+  margin-top: 22px;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  max-width: 740px;
+  color: var(--ink-secondary);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.apple-cta-row {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.apple-main-cta {
+  padding: 12px 28px;
+  font-size: 0.96rem;
+}
+
+/* Device Showcase Screen */
+.apple-hero-device-frame {
+  margin-top: 64px;
+  width: 100%;
+  max-width: 1100px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.9);
+  border: 1px solid var(--panel-border);
+}
+
+.device-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+
+.device-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.device-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 28px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.device-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.device-meta {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Specs Ticker */
+.apple-specs-ticker {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  max-width: 860px;
+  border-top: 1px solid var(--line);
+  padding-top: 48px;
+}
+
+.spec-item {
+  text-align: center;
+}
+
+.spec-big-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.spec-desc {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+
+.spec-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--line);
+}
+
+@media (max-width: 768px) {
+  .desktop-br {
+    display: none;
+  }
+  .apple-specs-ticker {
+    flex-direction: column;
+    gap: 28px;
+  }
+  .spec-divider {
+    display: none;
+  }
+  .device-caption-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 18px;
+  }
+}

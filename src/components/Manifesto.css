@@ -1,0 +1,28 @@
+.apple-manifesto-section {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.apple-manifesto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 880px;
+}
+
+.apple-manifesto-headline {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin: 14px 0 24px;
+}
+
+.apple-manifesto-sub {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  max-width: 720px;
+}

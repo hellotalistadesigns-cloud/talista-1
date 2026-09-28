@@ -1,0 +1,120 @@
+.apple-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--line);
+  padding: 40px 0 32px;
+  font-size: 0.76rem;
+  color: var(--ink-secondary);
+}
+
+.apple-footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.apple-footnotes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+  line-height: 1.5;
+  color: var(--ink-tertiary);
+}
+
+.apple-footer-directory {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.directory-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.directory-heading {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.directory-column a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.directory-column a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.apple-legal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legal-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legal-links a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+}
+
+.legal-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.legal-sep {
+  color: var(--ink-tertiary);
+}
+
+.apple-scroll-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--ink-secondary);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: 0.76rem;
+  transition: var(--transition-apple);
+}
+
+.apple-scroll-top:hover {
+  color: var(--ink);
+  border-color: var(--panel-border-hover);
+}
+
+@media (max-width: 768px) {
+  .apple-footer-directory {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .apple-legal-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,166 @@
+.apple-work-section {
+  position: relative;
+}
+
+.apple-work-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 44px;
+}
+
+.apple-work-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  margin-bottom: 14px;
+}
+
+.apple-work-sub {
+  font-size: 1.1rem;
+  color: var(--ink-secondary);
+}
+
+/* Apple Segmented Control Tabs */
+.apple-segmented-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  max-width: fit-content;
+  margin: 0 auto 52px;
+  overflow-x: auto;
+}
+
+.apple-tab {
+  background: transparent;
+  border: none;
+  color: var(--ink-secondary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition-apple);
+}
+
+.apple-tab:hover {
+  color: var(--ink);
+}
+
+.apple-tab.active {
+  background: var(--apple-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 12px var(--apple-blue-glow);
+}
+
+/* Cards Grid */
+.apple-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.apple-showcase-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  transition: var(--transition-apple);
+}
+
+.apple-showcase-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.card-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #0a0a0c;
+  overflow: hidden;
+}
+
+.card-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.apple-showcase-card:hover .card-product-img {
+  transform: scale(1.05);
+}
+
+.card-top-pill {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.card-info-box {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.card-client-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--apple-blue);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card-main-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 6px 0;
+  color: var(--ink);
+}
+
+.card-summary {
+  font-size: 0.95rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.card-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.card-link-btn {
+  font-size: 0.9rem;
+}
+
+.card-year-tag {
+  font-size: 0.8rem;
+  color: var(--ink-tertiary);
+}
+
+@media (max-width: 820px) {
+  .apple-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
