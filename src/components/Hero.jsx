@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, Play, Sparkles } from 'lucide-react';
+import { ChevronRight, Sparkles } from 'lucide-react';
 import './Hero.css';
 
 export default function Hero({ onOpenPlanner }) {
@@ -7,22 +7,27 @@ export default function Hero({ onOpenPlanner }) {
     <section className="apple-hero-section" id="hero">
       <div className="layout-wrap apple-hero-container">
 
-        {/* Apple Keynote Eyebrow */}
+        {/* Eyebrow tag */}
+        <div className="apple-eyebrow hero-anim-1">
+          <Sparkles size={13} className="eyebrow-icon" />
+          <span className="eyebrow-tag">TALISTA STUDIOS</span>
+          <span className="eyebrow-sep">·</span>
+          <span className="eyebrow-sub">Creative Studio · India &amp; Global</span>
+        </div>
 
-
-        {/* Apple Massive Headline */}
-        <h1 className="apple-hero-headline">
+        {/* Headline */}
+        <h1 className="apple-hero-headline hero-anim-2">
           Brands worth a <span className="titanium-text">second look.</span>
         </h1>
 
-        {/* Apple Sub-headline */}
-        <p className="apple-hero-sub">
+        {/* Sub-headline */}
+        <p className="apple-hero-sub hero-anim-3">
           Bespoke visual identity. Cinematic 3D motion. Ultra-fast digital architecture.
-          <br className="desktop-br" /> Engineered with surgical restraint for ambitious founders.
+          Engineered with surgical restraint for ambitious founders.
         </p>
 
-        {/* Apple CTA Row */}
-        <div className="apple-cta-row">
+        {/* CTA Row */}
+        <div className="apple-cta-row hero-anim-4">
           <button onClick={onOpenPlanner} className="btn-primary apple-main-cta">
             <span>Start a project</span>
           </button>
@@ -33,13 +38,16 @@ export default function Hero({ onOpenPlanner }) {
           </a>
         </div>
 
-        {/* Apple Hardware-Style Showcase Banner */}
-        <div className="apple-hero-device-frame glass-card">
+        {/* Device Showcase Frame */}
+        <div className="apple-hero-device-frame glass-card hero-anim-5">
           <div className="device-screen">
             <img
               src="/assets/the-hooper.jpg"
               alt="Talista Studios Featured Showcase"
               className="device-preview-img"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="device-caption-bar">
               <div className="device-badge">
@@ -51,8 +59,8 @@ export default function Hero({ onOpenPlanner }) {
           </div>
         </div>
 
-        {/* Apple Specs Ticker */}
-        <div className="apple-specs-ticker">
+        {/* Specs Ticker */}
+        <div className="apple-specs-ticker hero-anim-5">
           <div className="spec-item">
             <div className="spec-big-num titanium-text">42+</div>
             <div className="spec-desc">Global Brand Launches</div>

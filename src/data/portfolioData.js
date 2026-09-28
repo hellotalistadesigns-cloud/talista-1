@@ -81,6 +81,7 @@ export const studioCapabilities = [
   {
     id: 'identity',
     featured: true,
+    gridSpan: 2,
     title: 'Brand Identity & Logo Systems',
     tagline: 'Built to command authority across every touchpoint.',
     description: 'We shape timeless visual languages — from bespoke wordmarks and typography systems to color theory, tactile packaging, and brand guidelines that hold up for decades.',
@@ -90,6 +91,7 @@ export const studioCapabilities = [
   {
     id: 'motion-ai',
     featured: true,
+    gridSpan: 1,
     title: 'AI Video Ads, 3D & Motion Reels',
     tagline: 'High-converting video engineered for modern social performance.',
     description: 'Combining state-of-the-art AI generation, 3D fluid motion graphics, and hypnotic sound design to create thumb-stopping short-form ads that boost ROAS.',
@@ -99,6 +101,7 @@ export const studioCapabilities = [
   {
     id: 'web-dev',
     featured: true,
+    gridSpan: 3,
     title: 'Website Design & Modern Development',
     tagline: 'Fast, on-brand digital experiences built to convert and scale.',
     description: 'Bespoke UI/UX and lightning-fast React / Next.js web applications with smooth micro-interactions, seamless CMS backends, and flawless responsiveness.',
@@ -108,6 +111,7 @@ export const studioCapabilities = [
   {
     id: 'graphic-design',
     featured: false,
+    gridSpan: 1,
     title: 'Graphic & Campaign Design',
     tagline: 'Impactful collateral for print, digital, and live activations.',
     description: 'Key visuals, promotional pitch decks, billboards, physical lookbooks, and high-impact digital campaign materials.',
@@ -116,6 +120,7 @@ export const studioCapabilities = [
   {
     id: 'social-creative',
     featured: false,
+    gridSpan: 1,
     title: 'Social Media Creative Engines',
     tagline: 'Consistent, on-brand template systems for social growth.',
     description: 'Strategic content suites, bespoke Figma templates, and carousels engineered for brand cohesion and daily organic engagement.',
@@ -124,6 +129,7 @@ export const studioCapabilities = [
   {
     id: 'packaging',
     featured: false,
+    gridSpan: 1,
     title: 'Packaging & Unboxing Architecture',
     tagline: 'Tactile physical materials and photorealistic 3D renders.',
     description: 'Bespoke bottle, box, and label design paired with hyper-realistic 3D CGI rendering to create unboxing moments that drive customer retention.',
@@ -132,6 +138,7 @@ export const studioCapabilities = [
   {
     id: 'ugc-content',
     featured: false,
+    gridSpan: 3,
     title: 'UGC & Creator Directing',
     tagline: 'Authentic creator-style video assets that build deep trust.',
     description: 'Scripting, directing, and editing authentic user-generated content that blends organic lifestyle storytelling with direct-response sales copy.',

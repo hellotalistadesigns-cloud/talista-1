@@ -11,7 +11,8 @@
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
-  transition: var(--transition-apple);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  animation: slideDown 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) both;
 }
 
 .apple-navbar.scrolled {
@@ -65,10 +66,33 @@
   font-weight: 400;
   letter-spacing: -0.01em;
   transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.apple-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--apple-blue);
+  transition: width 0.25s ease;
+  border-radius: 2px;
 }
 
 .apple-nav-item:hover {
   color: var(--ink);
+}
+
+.apple-nav-item.active {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.apple-nav-item.active::after {
+  width: 100%;
 }
 
 .apple-nav-actions {

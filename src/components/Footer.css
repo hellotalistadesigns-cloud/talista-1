@@ -1,7 +1,7 @@
 .apple-footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--line);
-  padding: 40px 0 32px;
+  padding: 52px 0 32px;
   font-size: 0.76rem;
   color: var(--ink-secondary);
 }
@@ -10,6 +10,69 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+}
+
+/* Brand wordmark block */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  width: fit-content;
+}
+
+.footer-logo-icon {
+  color: var(--ink);
+}
+
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.footer-brand-tagline {
+  font-size: 0.84rem;
+  color: var(--ink-tertiary);
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--ink-secondary);
+  text-decoration: none;
+  transition: var(--transition-apple);
+}
+
+.footer-social-btn:hover {
+  background: var(--apple-blue);
+  color: #fff;
+  border-color: var(--apple-blue);
+  transform: scale(1.08);
 }
 
 .apple-footnotes {

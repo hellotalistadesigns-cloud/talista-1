@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { 
-  Send, 
-  Check, 
-  Copy, 
-  Phone, 
-  Mail, 
-  Globe, 
-  Sparkles,
-  ChevronRight
+import {
+  Check,
+  Copy,
+  Mail,
+  AlertCircle
 } from 'lucide-react';
 import './ProjectPlanner.css';
 
+// Replace with your actual Formspree endpoint
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzrabcd';
+
 export default function ProjectPlanner() {
   const [selectedServices, setSelectedServices] = useState(['Brand Identity & Logo']);
-  const [budgetTier, setBudgetTier] = useState('₹3,00,000 – ₹6,00,000 (₹3L – ₹6L)');
+  const [budgetTier, setBudgetTier] = useState('₹3L – ₹6L');
   const [timeline, setTimeline] = useState('3–4 Weeks');
   const [copiedKey, setCopiedKey] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,10 +37,10 @@ export default function ProjectPlanner() {
   ];
 
   const budgetOptions = [
-    '₹1,50,000 – ₹3,00,000 (₹1.5L – ₹3L)',
-    '₹3,00,000 – ₹6,00,000 (₹3L – ₹6L)',
-    '₹6,00,000 – ₹15,00,000 (₹6L – ₹15L)',
-    '₹15,00,000+ (₹15L+)'
+    { label: '₹1.5L – ₹3L',  value: '₹1,50,000 – ₹3,00,000' },
+    { label: '₹3L – ₹6L',    value: '₹3,00,000 – ₹6,00,000' },
+    { label: '₹6L – ₹15L',   value: '₹6,00,000 – ₹15,00,000' },
+    { label: '₹15L+',        value: '₹15,00,000+' },
   ];
 
   const timelineOptions = [
@@ -65,27 +66,80 @@ export default function ProjectPlanner() {
     setTimeout(() => setCopiedKey(null), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const validate = () => {
+    const errs = {};
+    if (!formData.name.trim()) errs.name = 'Name is required.';
+    if (!formData.email.trim()) {
+      errs.email = 'Email is required.';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errs.email = 'Please enter a valid email.';
+    }
+    return errs;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
+    setIsSubmitting(true);
 
-    // Apple-style elegant confetti burst
-    confetti({
-      particleCount: 100,
-      spread: 60,
-      origin: { y: 0.6 },
-      colors: ['#0071E3', '#2997FF', '#FFFFFF', '#F5E3CA']
-    });
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        brand: formData.brand,
+        services: selectedServices.join(', '),
+        budget: budgetTier,
+        timeline,
+        details: formData.details,
+      };
 
-    setIsSubmitted(true);
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        confetti({
+          particleCount: 100,
+          spread: 60,
+          origin: { y: 0.6 },
+          colors: ['#0071E3', '#2997FF', '#FFFFFF', '#F5E3CA']
+        });
+        setIsSubmitted(true);
+      } else {
+        // Fallback: open mailto
+        const subject = encodeURIComponent(`Project Brief from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\nBrand: ${formData.brand}\nServices: ${selectedServices.join(', ')}\nBudget: ${budgetTier}\nTimeline: ${timeline}\n\n${formData.details}`
+        );
+        window.location.href = `mailto:hello@talista.in?subject=${subject}&body=${body}`;
+        setIsSubmitted(true);
+      }
+    } catch {
+      // Network failure fallback — open mailto
+      const subject = encodeURIComponent(`Project Brief from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nBrand: ${formData.brand}\nServices: ${selectedServices.join(', ')}\nBudget: ${budgetTier}\nTimeline: ${timeline}\n\n${formData.details}`
+      );
+      window.location.href = `mailto:hello@talista.in?subject=${subject}&body=${body}`;
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section className="apple-planner-section" id="contact">
       <div className="layout-wrap">
-        
+
         {/* Section Header */}
-        <div className="apple-planner-header">
+        <div className="apple-planner-header reveal">
           <span className="section-label">START AN ENGAGEMENT</span>
           <h2 className="apple-planner-title">
             Configure your project. <br />
@@ -96,9 +150,9 @@ export default function ProjectPlanner() {
           </p>
         </div>
 
-        {/* Apple Store Configurator Layout */}
-        <div className="apple-planner-layout">
-          
+        {/* Layout */}
+        <div className="apple-planner-layout reveal reveal-delay-1">
+
           {/* Configurator Form */}
           <div className="apple-config-box glass-card">
             {isSubmitted ? (
@@ -108,10 +162,12 @@ export default function ProjectPlanner() {
                 </div>
                 <h3 className="success-h3">Brief Submitted Successfully</h3>
                 <p className="success-body">
-                  Thank you, <strong>{formData.name}</strong>. Vaibhav Shukla and our lead creative team have received your project scope for <strong>{formData.brand || 'your brand'}</strong> and will follow up with an initial assessment shortly.
+                  Thank you, <strong>{formData.name}</strong>. Vaibhav Shukla and our lead creative team
+                  have received your project scope for <strong>{formData.brand || 'your brand'}</strong> and
+                  will follow up with an initial assessment shortly.
                 </p>
-                <button 
-                  onClick={() => setIsSubmitted(false)} 
+                <button
+                  onClick={() => { setIsSubmitted(false); setFormData({ name: '', email: '', brand: '', details: '' }); }}
                   className="btn-ghost"
                   style={{ marginTop: '24px' }}
                 >
@@ -119,15 +175,14 @@ export default function ProjectPlanner() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="apple-config-form">
-                
-                {/* Step 1: Model / Disciplines */}
+              <form onSubmit={handleSubmit} className="apple-config-form" noValidate>
+
+                {/* Step 1 */}
                 <div className="config-step">
                   <div className="step-label-row">
                     <span className="step-tag">Step 1</span>
                     <span className="step-text">Choose your disciplines</span>
                   </div>
-
                   <div className="apple-pill-options">
                     {availableServices.map((service) => {
                       const isSelected = selectedServices.includes(service);
@@ -146,31 +201,29 @@ export default function ProjectPlanner() {
                   </div>
                 </div>
 
-                {/* Step 2: Budget & Timeline */}
+                {/* Step 2 */}
                 <div className="config-step">
                   <div className="step-label-row">
                     <span className="step-tag">Step 2</span>
                     <span className="step-text">Select budget &amp; launch timeline</span>
                   </div>
-
                   <div className="dual-select-row">
                     <div className="select-container">
                       <label className="select-caption">Estimated Budget (INR / ₹)</label>
-                      <select 
-                        value={budgetTier} 
+                      <select
+                        value={budgetTier}
                         onChange={(e) => setBudgetTier(e.target.value)}
                         className="apple-input apple-select"
                       >
                         {budgetOptions.map(b => (
-                          <option key={b} value={b}>{b}</option>
+                          <option key={b.label} value={b.label} title={b.value}>{b.label}</option>
                         ))}
                       </select>
                     </div>
-
                     <div className="select-container">
                       <label className="select-caption">Target Completion</label>
-                      <select 
-                        value={timeline} 
+                      <select
+                        value={timeline}
                         onChange={(e) => setTimeline(e.target.value)}
                         className="apple-input apple-select"
                       >
@@ -182,53 +235,60 @@ export default function ProjectPlanner() {
                   </div>
                 </div>
 
-                {/* Step 3: Client Info */}
+                {/* Step 3 */}
                 <div className="config-step">
                   <div className="step-label-row">
                     <span className="step-tag">Step 3</span>
                     <span className="step-text">Contact information</span>
                   </div>
-
                   <div className="dual-select-row">
-                    <input 
-                      type="text" 
-                      required 
-                      placeholder="Your Name *"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="apple-input"
-                    />
-                    <input 
-                      type="email" 
-                      required 
-                      placeholder="Work Email *"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    <div className="config-field">
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your Name *"
+                        value={formData.name}
+                        onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors(p => ({...p, name: ''})); }}
+                        className={`apple-input ${errors.name ? 'input-error' : ''}`}
+                        aria-describedby={errors.name ? 'err-name' : undefined}
+                      />
+                      {errors.name && <span className="field-error" id="err-name"><AlertCircle size={12} />{errors.name}</span>}
+                    </div>
+                    <div className="config-field">
+                      <input
+                        type="email"
+                        required
+                        placeholder="Work Email *"
+                        value={formData.email}
+                        onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors(p => ({...p, email: ''})); }}
+                        className={`apple-input ${errors.email ? 'input-error' : ''}`}
+                        aria-describedby={errors.email ? 'err-email' : undefined}
+                      />
+                      {errors.email && <span className="field-error" id="err-email"><AlertCircle size={12} />{errors.email}</span>}
+                    </div>
+                  </div>
+                  <div className="config-field">
+                    <input
+                      type="text"
+                      placeholder="Brand Name / URL"
+                      value={formData.brand}
+                      onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
                       className="apple-input"
                     />
                   </div>
-
-                  <input 
-                    type="text" 
-                    placeholder="Brand Name / URL"
-                    value={formData.brand}
-                    onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                    className="apple-input"
-                    style={{ marginTop: '12px' }}
-                  />
-
-                  <textarea 
-                    rows={3}
-                    placeholder="Project overview &amp; key deliverables..."
-                    value={formData.details}
-                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    className="apple-input textarea"
-                    style={{ marginTop: '12px' }}
-                  />
+                  <div className="config-field">
+                    <textarea
+                      rows={3}
+                      placeholder="Project overview & key deliverables..."
+                      value={formData.details}
+                      onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                      className="apple-input textarea"
+                    />
+                  </div>
                 </div>
 
-                <button type="submit" className="btn-primary apple-submit-btn">
-                  <span>Send Project Brief</span>
+                <button type="submit" className="btn-primary apple-submit-btn" disabled={isSubmitting}>
+                  <span>{isSubmitting ? 'Sending...' : 'Send Project Brief'}</span>
                 </button>
 
               </form>
@@ -244,13 +304,12 @@ export default function ProjectPlanner() {
               </p>
 
               <div className="apple-channels-list">
-                
                 <div className="apple-channel-row">
                   <div className="channel-meta">
                     <span className="meta-label">EMAIL INQUIRIES</span>
                     <a href="mailto:hello@talista.in" className="meta-link">hello@talista.in</a>
                   </div>
-                  <button 
+                  <button
                     onClick={() => handleCopy('hello@talista.in', 'email')}
                     className="apple-copy-btn"
                     title="Copy Email"
@@ -264,7 +323,7 @@ export default function ProjectPlanner() {
                     <span className="meta-label">PHONE &amp; WHATSAPP</span>
                     <a href="tel:+919455635155" className="meta-link">+91 94556 35155</a>
                   </div>
-                  <button 
+                  <button
                     onClick={() => handleCopy('+919455635155', 'phone')}
                     className="apple-copy-btn"
                     title="Copy Phone Number"
@@ -281,7 +340,6 @@ export default function ProjectPlanner() {
                     </a>
                   </div>
                 </div>
-
               </div>
             </div>
 

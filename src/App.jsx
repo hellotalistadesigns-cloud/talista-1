@@ -9,6 +9,7 @@ import FounderAbout from './components/FounderAbout';
 import ProjectPlanner from './components/ProjectPlanner';
 import Footer from './components/Footer';
 import CaseStudyModal from './components/CaseStudyModal';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import './App.css';
 
 export default function App() {
@@ -17,6 +18,9 @@ export default function App() {
   });
 
   const [selectedProject, setSelectedProject] = useState(null);
+
+  // Activate scroll-reveal IntersectionObserver for the whole page
+  useScrollReveal();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

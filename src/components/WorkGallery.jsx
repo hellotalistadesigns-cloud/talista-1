@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { portfolioProjects } from '../data/portfolioData';
-import { ChevronRight, Plus } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import './WorkGallery.css';
 
 export default function WorkGallery({ onSelectProject }) {
@@ -8,16 +8,16 @@ export default function WorkGallery({ onSelectProject }) {
 
   const categories = ['All', 'Brand Identity', 'Packaging Design', 'Motion & AI Video', 'Website & Digital'];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? portfolioProjects 
+  const filteredProjects = activeFilter === 'All'
+    ? portfolioProjects
     : portfolioProjects.filter(p => p.category === activeFilter);
 
   return (
     <section className="apple-work-section" id="work">
       <div className="layout-wrap">
-        
+
         {/* Section Header */}
-        <div className="apple-work-header">
+        <div className="apple-work-header reveal">
           <span className="section-label">STUDIO SHOWCASE</span>
           <h2 className="apple-work-title">
             Crafted for maximum <span className="titanium-text">commercial impact.</span>
@@ -27,8 +27,8 @@ export default function WorkGallery({ onSelectProject }) {
           </p>
         </div>
 
-        {/* Apple Segmented Control Filter Tabs */}
-        <div className="apple-segmented-tabs" role="tablist">
+        {/* Filter Tabs */}
+        <div className="apple-segmented-tabs reveal reveal-delay-1" role="tablist">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -42,44 +42,52 @@ export default function WorkGallery({ onSelectProject }) {
           ))}
         </div>
 
-        {/* Apple Product Card Grid */}
-        <div className="apple-cards-grid">
-          {filteredProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className="apple-showcase-card glass-card"
-              onClick={() => onSelectProject(project)}
-            >
-              <div className="card-image-box">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="card-product-img" 
-                  loading="lazy"
-                />
-                <div className="card-top-pill">
-                  <span>{project.category}</span>
-                </div>
-              </div>
-
-              <div className="card-info-box">
-                <div className="card-headline-group">
-                  <span className="card-client-tag">{project.client}</span>
-                  <h3 className="card-main-title">{project.title}</h3>
-                  <p className="card-summary">{project.subtitle}</p>
+        {/* Cards Grid */}
+        {filteredProjects.length > 0 ? (
+          <div className="apple-cards-grid">
+            {filteredProjects.map((project, i) => (
+              <div
+                key={project.id}
+                className="apple-showcase-card glass-card"
+                style={{ animationDelay: `${i * 0.07}s` }}
+                onClick={() => onSelectProject(project)}
+              >
+                <div className="card-image-box">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="card-product-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="card-top-pill">
+                    <span>{project.category}</span>
+                  </div>
                 </div>
 
-                <div className="card-action-row">
-                  <button className="link-chevron card-link-btn">
-                    <span>View case study</span>
-                    <ChevronRight size={15} />
-                  </button>
-                  <span className="card-year-tag">{project.year}</span>
+                <div className="card-info-box">
+                  <div className="card-headline-group">
+                    <span className="card-client-tag">{project.client}</span>
+                    <h3 className="card-main-title">{project.title}</h3>
+                    <p className="card-summary">{project.subtitle}</p>
+                  </div>
+
+                  <div className="card-action-row">
+                    <button className="link-chevron card-link-btn">
+                      <span>View case study</span>
+                      <ChevronRight size={15} />
+                    </button>
+                    <span className="card-year-tag">{project.year}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="gallery-empty-state">
+            <p className="empty-state-text">No projects in this category yet.</p>
+          </div>
+        )}
 
       </div>
     </section>

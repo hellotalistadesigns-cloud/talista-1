@@ -11,23 +11,42 @@
   align-items: center;
 }
 
+/* Hero stagger entrance animations */
+.hero-anim-1 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.05s both; }
+.hero-anim-2 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s both; }
+.hero-anim-3 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.25s both; }
+.hero-anim-4 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.35s both; }
+.hero-anim-5 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.50s both; }
+
+/* Eyebrow */
 .apple-eyebrow {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow-icon {
+  color: var(--apple-blue);
 }
 
 .eyebrow-tag {
   color: var(--apple-blue);
   letter-spacing: 0.08em;
   font-weight: 700;
+  font-size: 0.76rem;
+}
+
+.eyebrow-sep {
+  color: var(--ink-tertiary);
 }
 
 .eyebrow-sub {
   color: var(--ink-secondary);
+  font-size: 0.8rem;
 }
 
 .apple-hero-headline {
@@ -41,11 +60,12 @@
 .apple-hero-sub {
   margin-top: 18px;
   font-size: clamp(1.05rem, 2vw, 1.4rem);
-  max-width: 740px;
+  max-width: 700px;
   color: var(--ink-secondary);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.5;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .apple-cta-row {
@@ -70,6 +90,15 @@
   overflow: hidden;
   box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.9);
   border: 1px solid var(--panel-border);
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+}
+
+.apple-hero-device-frame:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 60px 120px -20px rgba(0, 0, 0, 0.95),
+              0 0 0 1px var(--panel-border-hover);
 }
 
 .device-screen {
@@ -140,7 +169,7 @@
 
 .spec-desc {
   margin-top: 8px;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--ink-secondary);
   font-weight: 500;
 }

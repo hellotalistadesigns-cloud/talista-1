@@ -1,12 +1,12 @@
 import React from 'react';
 import { studioCapabilities } from '../data/portfolioData';
-import { 
-  Layers, 
-  Video, 
-  Globe, 
-  Palette, 
-  Share2, 
-  Sparkles, 
+import {
+  Layers,
+  Video,
+  Globe,
+  Palette,
+  Share2,
+  Sparkles,
   Package,
   ChevronRight,
   Check
@@ -16,31 +16,23 @@ import './CapabilitiesBento.css';
 export default function CapabilitiesBento({ onOpenPlanner }) {
   const getIcon = (id) => {
     switch (id) {
-      case 'identity':
-        return <Layers className="apple-bento-icon" />;
-      case 'motion-ai':
-        return <Video className="apple-bento-icon" />;
-      case 'web-dev':
-        return <Globe className="apple-bento-icon" />;
-      case 'graphic-design':
-        return <Palette className="apple-bento-icon" />;
-      case 'packaging':
-        return <Package className="apple-bento-icon" />;
-      case 'social-creative':
-        return <Share2 className="apple-bento-icon" />;
-      case 'ugc-content':
-        return <Sparkles className="apple-bento-icon" />;
-      default:
-        return <Layers className="apple-bento-icon" />;
+      case 'identity':     return <Layers className="apple-bento-icon" />;
+      case 'motion-ai':   return <Video className="apple-bento-icon" />;
+      case 'web-dev':     return <Globe className="apple-bento-icon" />;
+      case 'graphic-design': return <Palette className="apple-bento-icon" />;
+      case 'packaging':   return <Package className="apple-bento-icon" />;
+      case 'social-creative': return <Share2 className="apple-bento-icon" />;
+      case 'ugc-content': return <Sparkles className="apple-bento-icon" />;
+      default:            return <Layers className="apple-bento-icon" />;
     }
   };
 
   return (
     <section className="apple-capabilities-section" id="capabilities">
       <div className="layout-wrap">
-        
+
         {/* Section Header */}
-        <div className="apple-cap-header">
+        <div className="apple-cap-header reveal">
           <span className="section-label">STUDIO CAPABILITIES</span>
           <h2 className="apple-cap-title">
             Seven disciplines. <br />
@@ -51,15 +43,16 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
           </p>
         </div>
 
-        {/* Apple Feature Bento Grid */}
+        {/* Bento Grid — spans driven by data.gridSpan */}
         <div className="apple-bento-grid">
-          {studioCapabilities.map((cap) => (
-            <div 
-              key={cap.id} 
-              className={`apple-bento-card glass-card ${cap.featured ? 'featured-apple-card' : ''}`}
+          {studioCapabilities.map((cap, i) => (
+            <div
+              key={cap.id}
+              className={`apple-bento-card glass-card ${cap.featured ? 'featured-bento-card' : ''} reveal reveal-delay-${Math.min(i % 3 + 1, 4)}`}
+              style={{ gridColumn: `span ${cap.gridSpan}` }}
             >
               <div className="apple-bento-top">
-                <div className="apple-icon-circle">
+                <div className={`apple-icon-circle ${cap.featured ? 'icon-circle-lg' : ''}`}>
                   {getIcon(cap.id)}
                 </div>
                 {cap.tag && (
@@ -73,12 +66,12 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
                 <p className="apple-bento-desc">{cap.description}</p>
               </div>
 
-              {/* Apple Specs Deliverable List */}
+              {/* Deliverables */}
               <div className="apple-bento-specs">
                 <div className="specs-label">KEY DELIVERABLES</div>
                 <div className="specs-tags-wrap">
-                  {cap.deliverables.map((item, i) => (
-                    <span key={i} className="spec-bubble">
+                  {cap.deliverables.map((item, j) => (
+                    <span key={j} className="spec-bubble">
                       <Check size={12} className="check-blue" />
                       <span>{item}</span>
                     </span>

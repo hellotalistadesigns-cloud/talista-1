@@ -20,7 +20,7 @@
   font-size: 1.1rem;
 }
 
-/* Apple Bento Grid Layout */
+/* Bento Grid Layout — spans are set via inline style from data */
 .apple-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -37,20 +37,10 @@
   transition: var(--transition-apple);
 }
 
-.apple-bento-card.featured-apple-card:first-child {
-  grid-column: span 2;
-}
-
-.apple-bento-card.featured-apple-card:nth-child(2) {
-  grid-column: span 1;
-}
-
-.apple-bento-card.featured-apple-card:nth-child(3) {
-  grid-column: span 3;
-}
-
-.apple-bento-card:nth-child(7) {
-  grid-column: span 3;
+/* Featured cards get a slightly elevated background to signal primacy */
+.apple-bento-card.featured-bento-card {
+  background: var(--bg-elevated);
+  border-color: var(--panel-border-hover);
 }
 
 .apple-bento-top {
@@ -71,6 +61,12 @@
   justify-content: center;
   color: var(--apple-blue);
   transition: var(--transition-apple);
+}
+
+/* Larger icon for featured bento cards */
+.apple-icon-circle.icon-circle-lg {
+  width: 56px;
+  height: 56px;
 }
 
 .apple-bento-card:hover .apple-icon-circle {
@@ -125,7 +121,7 @@
 }
 
 .specs-label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--ink-tertiary);
@@ -169,11 +165,9 @@
     grid-template-columns: 1fr;
     gap: 18px;
   }
-  .apple-bento-card.featured-apple-card:first-child,
-  .apple-bento-card.featured-apple-card:nth-child(2),
-  .apple-bento-card.featured-apple-card:nth-child(3),
-  .apple-bento-card:nth-child(7) {
-    grid-column: span 1;
+  /* Override all span values on small screens */
+  .apple-bento-card[style] {
+    grid-column: span 1 !important;
   }
   .apple-cap-header {
     margin-bottom: 32px;

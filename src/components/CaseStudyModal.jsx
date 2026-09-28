@@ -31,7 +31,7 @@ export default function CaseStudyModal({ project, onClose, onStartProject }) {
           
           {/* Media Header */}
           <div className="modal-hero-frame">
-            <img src={project.image} alt={project.title} className="modal-hero-photo" />
+            <img src={project.image} alt={project.title} className="modal-hero-photo" decoding="async" />
             <div className="modal-hero-gradient" />
             <div className="modal-hero-tags">
               <span className="apple-tag-pill">{project.category}</span>

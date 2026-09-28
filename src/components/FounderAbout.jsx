@@ -14,8 +14,8 @@ export default function FounderAbout() {
       <div className="layout-wrap apple-about-grid">
         
         {/* Left Story Column */}
-        <div className="about-narrative">
-          <span className="section-label">STUDIO LEADERSHIP</span>
+        <div className="about-narrative reveal">
+          <span className="section-label">OUR PHILOSOPHY</span>
           <h2 className="about-main-title">
             Ideas, visuals, impact. <br />
             <span className="titanium-text">In that exact order.</span>
@@ -40,7 +40,7 @@ export default function FounderAbout() {
         </div>
 
         {/* Right Leadership Card */}
-        <div className="founder-profile-column">
+        <div className="founder-profile-column reveal reveal-delay-2">
           <div className="apple-founder-card glass-card">
             <div className="founder-top-badge">
               <span>Studio Founder</span>

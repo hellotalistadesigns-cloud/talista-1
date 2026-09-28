@@ -198,6 +198,33 @@
   line-height: 1.5;
 }
 
+/* config-field replaces scattered inline styles */
+.config-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.config-field:first-child {
+  margin-top: 0;
+}
+
+/* Inline validation */
+.apple-input.input-error {
+  border-color: #ff453a;
+  box-shadow: 0 0 0 3px rgba(255, 69, 58, 0.2);
+}
+
+.field-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: #ff453a;
+  font-weight: 500;
+}
+
 .apple-submit-btn {
   width: 100%;
   padding: 16px;

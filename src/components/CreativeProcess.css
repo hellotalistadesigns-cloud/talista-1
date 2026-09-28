@@ -19,9 +19,9 @@
 }
 
 .apple-process-pipeline {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
 }
 
 .apple-step-card {
@@ -30,6 +30,17 @@
   background: var(--bg-card);
   display: flex;
   flex-direction: column;
+  flex: 1;
+}
+
+/* Arrow connector between steps */
+.step-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  color: var(--ink-tertiary);
+  flex-shrink: 0;
 }
 
 .step-badge-row {
@@ -111,9 +122,22 @@
   color: var(--ink-secondary);
 }
 
+.commitment-cta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 @media (max-width: 1024px) {
   .apple-process-pipeline {
-    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .apple-step-card {
+    flex: 1 1 calc(50% - 32px);
+    min-width: 240px;
+  }
+  .step-connector {
+    display: none;
   }
 }
 
@@ -122,10 +146,12 @@
     margin-bottom: 32px;
   }
   .apple-process-pipeline {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    flex-direction: column;
+    gap: 14px;
   }
   .apple-step-card {
+    flex: unset;
+    width: 100%;
     padding: 22px 18px;
   }
   .step-badge-row {
