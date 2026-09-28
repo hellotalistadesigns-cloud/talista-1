@@ -52,7 +52,7 @@ export default function About() {
               src="/assets/studio-atelier.jpg" 
               alt="Talista Creative Studio Atelier" 
               className="studio-banner-img curtain-img"
-              loading="lazy"
+              loading="eager"
               decoding="async"
             />
             <div className="studio-banner-overlay" />

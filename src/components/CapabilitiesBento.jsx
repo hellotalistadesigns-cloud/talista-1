@@ -46,7 +46,7 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
         </div>
 
         {/* 6-Card Disciplines Grid */}
-        <div className="disciplines-grid">
+        <div className="disciplines-grid reveal">
           {studioCapabilities.map((cap, i) => (
             <div
               key={cap.id}
@@ -55,13 +55,13 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
               onMouseLeave={handleCardMouseLeave}
               onClick={onOpenPlanner}
             >
-              {/* Media Preview Box with Curtain Reveal */}
+              {/* Media Preview Box */}
               <div className="discipline-media-box curtain-frame">
                 <img
                   src={cap.image}
                   alt={cap.title}
                   className="discipline-img curtain-img"
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                 />
                 <div className="discipline-img-overlay" />

@@ -67,7 +67,7 @@ export default function WorkGallery({ onSelectProject }) {
 
         {/* Cards Grid */}
         {filteredProjects.length > 0 ? (
-          <div className="apple-cards-grid">
+          <div className="apple-cards-grid reveal">
             {filteredProjects.map((project, i) => (
               <div
                 key={project.id}
@@ -81,7 +81,7 @@ export default function WorkGallery({ onSelectProject }) {
                     src={project.image}
                     alt={project.title}
                     className="card-product-img curtain-img"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                   />
                   <div className="card-top-pill">
