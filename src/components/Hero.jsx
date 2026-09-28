@@ -6,12 +6,9 @@ export default function Hero({ onOpenPlanner }) {
   return (
     <section className="apple-hero-section" id="hero">
       <div className="layout-wrap apple-hero-container">
-        
+
         {/* Apple Keynote Eyebrow */}
-        <div className="apple-eyebrow">
-          <span className="eyebrow-tag">TALISTA PRO</span>
-          <span className="eyebrow-sub">New Architecture for 2026</span>
-        </div>
+
 
         {/* Apple Massive Headline */}
         <h1 className="apple-hero-headline">
@@ -20,7 +17,7 @@ export default function Hero({ onOpenPlanner }) {
 
         {/* Apple Sub-headline */}
         <p className="apple-hero-sub">
-          Bespoke visual identity. Cinematic 3D motion. Ultra-fast digital architecture. 
+          Bespoke visual identity. Cinematic 3D motion. Ultra-fast digital architecture.
           <br className="desktop-br" /> Engineered with surgical restraint for ambitious founders.
         </p>
 
@@ -29,7 +26,7 @@ export default function Hero({ onOpenPlanner }) {
           <button onClick={onOpenPlanner} className="btn-primary apple-main-cta">
             <span>Start a project</span>
           </button>
-          
+
           <a href="#work" className="link-chevron">
             <span>Explore showcase</span>
             <ChevronRight size={16} />
@@ -39,9 +36,9 @@ export default function Hero({ onOpenPlanner }) {
         {/* Apple Hardware-Style Showcase Banner */}
         <div className="apple-hero-device-frame glass-card">
           <div className="device-screen">
-            <img 
-              src="/assets/the-hooper.jpg" 
-              alt="Talista Studios Featured Showcase" 
+            <img
+              src="/assets/the-hooper.jpg"
+              alt="Talista Studios Featured Showcase"
               className="device-preview-img"
             />
             <div className="device-caption-bar">
