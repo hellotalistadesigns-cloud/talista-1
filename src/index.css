@@ -104,7 +104,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
 }
 
@@ -511,7 +510,7 @@ select option {
   transform: perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
 }
 
-/* Mobile phone fly-in: strictly vertical and clamped to prevent horizontal overflow */
+/* Mobile phone animation enhancements */
 @media (max-width: 768px) {
   .card-reveal,
   .apple-cards-grid > .card-reveal:nth-child(odd),
@@ -522,16 +521,42 @@ select option {
   .about-spec-grid > .card-reveal:nth-child(3n+1),
   .about-spec-grid > .card-reveal:nth-child(3n+2),
   .about-spec-grid > .card-reveal:nth-child(3n+3) {
-    transform: perspective(800px) translate3d(0, 60px, -20px) rotateX(10deg) scale(0.94);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translate3d(0, 50px, 0) scale(0.95);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .card-reveal.revealed,
   .revealed.card-reveal,
   .revealed .card-reveal {
-    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1) !important;
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) scale(1) !important;
   }
+
+  /* Automatic ambient sheen sweep across cards on mobile */
+  .card-reveal.revealed.sheen-card::after,
+  .revealed .card-reveal.sheen-card::after,
+  .about-studio-banner.sheen-card::after {
+    animation: mobileSheenGlide 6s ease-in-out infinite;
+  }
+
+  /* Tactile touch response on phone */
+  .apple-showcase-card:active,
+  .discipline-card:active,
+  .about-spec-card:active,
+  .clean-showcase-frame:active,
+  .btn-primary:active,
+  .btn-studio-commission:active,
+  .apple-tab:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.12s ease !important;
+  }
+}
+
+@keyframes mobileSheenGlide {
+  0%, 75%   { transform: translateX(-100%); }
+  90%, 100% { transform: translateX(100%); }
 }
 
 /* Mouse-Tracking Card Spotlight */

@@ -281,6 +281,7 @@
 
   .clean-showcase-frame {
     border-radius: var(--radius-md);
+    animation: mobileHeroFloat 4.5s ease-in-out infinite;
   }
 
   .clean-showcase-tag {
@@ -289,4 +290,9 @@
     font-size: 0.74rem;
     padding: 5px 12px;
   }
+}
+
+@keyframes mobileHeroFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%      { transform: translateY(-5px) scale(1.008); }
 }

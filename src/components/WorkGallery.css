@@ -115,29 +115,6 @@
   transform: scale(1.06);
 }
 
-.card-top-pill {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: rgba(0, 0, 0, 0.60);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 0.74rem;
-  font-weight: 500;
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
-  z-index: 2;
-}
-
-.apple-showcase-card:hover .card-top-pill {
-  transform: translateY(-2px);
-  background: rgba(0, 0, 0, 0.85);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
 .card-info-box {
   padding: 28px;
   display: flex;
@@ -146,12 +123,28 @@
   flex: 1;
 }
 
-.card-client-tag {
+.card-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.card-client-tag {
   font-weight: 600;
   color: var(--apple-blue);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+}
+
+.card-meta-dot {
+  color: var(--ink-tertiary);
+  font-size: 0.7rem;
+}
+
+.card-category-tag {
+  color: var(--ink-secondary);
+  font-weight: 500;
 }
 
 .card-main-title {

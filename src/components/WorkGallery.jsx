@@ -84,14 +84,15 @@ export default function WorkGallery({ onSelectProject }) {
                     loading="eager"
                     decoding="async"
                   />
-                  <div className="card-top-pill">
-                    <span>{project.category}</span>
-                  </div>
                 </div>
 
                 <div className="card-info-box">
                   <div className="card-headline-group">
-                    <span className="card-client-tag">{project.client}</span>
+                    <div className="card-meta-line">
+                      <span className="card-client-tag">{project.client}</span>
+                      <span className="card-meta-dot">&bull;</span>
+                      <span className="card-category-tag">{project.category}</span>
+                    </div>
                     <h3 className="card-main-title">{project.title}</h3>
                     <p className="card-summary">{project.subtitle}</p>
                   </div>

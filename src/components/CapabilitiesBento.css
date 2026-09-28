@@ -89,30 +89,6 @@
   pointer-events: none;
 }
 
-.discipline-index-tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 4px 10px;
-  border-radius: 999px;
-  z-index: 2;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.discipline-card:hover .discipline-index-tag {
-  transform: translateY(-2px);
-  background: rgba(0, 0, 0, 0.8);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
 /* Card Content Area */
 .discipline-content {
   padding: 22px 24px 26px;

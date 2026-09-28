@@ -65,9 +65,6 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
                   decoding="async"
                 />
                 <div className="discipline-img-overlay" />
-                <div className="discipline-index-tag">
-                  <span>[{cap.num}]</span>
-                </div>
               </div>
 
               {/* Card Meta Content */}
