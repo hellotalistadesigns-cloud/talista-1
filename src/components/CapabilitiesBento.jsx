@@ -1,89 +1,94 @@
 import React from 'react';
 import { studioCapabilities } from '../data/portfolioData';
-import {
-  Layers,
-  Video,
-  Globe,
-  Palette,
-  Share2,
-  Sparkles,
-  Package,
-  ChevronRight,
-  Check
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import './CapabilitiesBento.css';
 
 export default function CapabilitiesBento({ onOpenPlanner }) {
-  const getIcon = (id) => {
-    switch (id) {
-      case 'identity':     return <Layers className="apple-bento-icon" />;
-      case 'motion-ai':   return <Video className="apple-bento-icon" />;
-      case 'web-dev':     return <Globe className="apple-bento-icon" />;
-      case 'graphic-design': return <Palette className="apple-bento-icon" />;
-      case 'packaging':   return <Package className="apple-bento-icon" />;
-      case 'social-creative': return <Share2 className="apple-bento-icon" />;
-      case 'ugc-content': return <Sparkles className="apple-bento-icon" />;
-      default:            return <Layers className="apple-bento-icon" />;
-    }
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale3d(1.02, 1.02, 1.02)`;
+  };
+
+  const handleCardMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = '';
   };
 
   return (
     <section className="apple-capabilities-section" id="capabilities">
       <div className="layout-wrap">
 
-        {/* Section Header */}
+        {/* Section Header with Masked Title */}
         <div className="apple-cap-header reveal">
-          <span className="section-label">STUDIO CAPABILITIES</span>
+          <span className="section-label">DISCIPLINES</span>
           <h2 className="apple-cap-title">
-            Seven disciplines. <br />
-            <span className="titanium-text">Unrivaled execution.</span>
+            <span className="mask-line">
+              <span className="mask-inner">
+                End-to-end <span className="serif-italic">craft.</span>
+              </span>
+            </span>
           </h2>
           <p className="apple-cap-sub">
-            Built from the ground up for high-growth brands that refuse to compromise on craft.
+            From strategic brand architecture to real-time 3D motion and high-performance digital platforms.
           </p>
         </div>
 
-        {/* Bento Grid — spans driven by data.gridSpan */}
-        <div className="apple-bento-grid">
+        {/* 6-Card Disciplines Grid */}
+        <div className="disciplines-grid">
           {studioCapabilities.map((cap, i) => (
             <div
               key={cap.id}
-              className={`apple-bento-card glass-card ${cap.featured ? 'featured-bento-card' : ''} reveal reveal-delay-${Math.min(i % 3 + 1, 4)}`}
-              style={{ gridColumn: `span ${cap.gridSpan}` }}
+              className={`discipline-card card-reveal spotlight-card sheen-card reveal reveal-delay-${Math.min((i % 3) + 1, 3)}`}
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              onClick={onOpenPlanner}
             >
-              <div className="apple-bento-top">
-                <div className={`apple-icon-circle ${cap.featured ? 'icon-circle-lg' : ''}`}>
-                  {getIcon(cap.id)}
+              {/* Media Preview Box with Curtain Reveal */}
+              <div className="discipline-media-box curtain-frame">
+                <img
+                  src={cap.image}
+                  alt={cap.title}
+                  className="discipline-img curtain-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="discipline-img-overlay" />
+                <div className="discipline-index-tag">
+                  <span>[{cap.num}]</span>
                 </div>
-                {cap.tag && (
-                  <span className="apple-pill-tag">{cap.tag}</span>
-                )}
               </div>
 
-              <div className="apple-bento-main">
-                <h3 className="apple-bento-h3">{cap.title}</h3>
-                <div className="apple-bento-tagline">{cap.tagline}</div>
-                <p className="apple-bento-desc">{cap.description}</p>
-              </div>
+              {/* Card Meta Content */}
+              <div className="discipline-content">
+                <div className="discipline-header-row">
+                  <h3 className="discipline-title">{cap.title}</h3>
+                  <div className="discipline-arrow-btn" aria-label="Discuss discipline">
+                    <ArrowUpRight size={18} />
+                  </div>
+                </div>
 
-              {/* Deliverables */}
-              <div className="apple-bento-specs">
-                <div className="specs-label">KEY DELIVERABLES</div>
-                <div className="specs-tags-wrap">
-                  {cap.deliverables.map((item, j) => (
-                    <span key={j} className="spec-bubble">
-                      <Check size={12} className="check-blue" />
-                      <span>{item}</span>
+                <p className="discipline-desc">{cap.description}</p>
+
+                {/* Minimalist Micro Tags */}
+                <div className="discipline-tags-row">
+                  {cap.tags.map((tag, j) => (
+                    <span key={j} className="discipline-tag-pill">
+                      {tag}
                     </span>
                   ))}
                 </div>
-              </div>
-
-              <div className="apple-bento-footer">
-                <button onClick={onOpenPlanner} className="link-chevron bento-link">
-                  <span>Explore this capability</span>
-                  <ChevronRight size={14} />
-                </button>
               </div>
             </div>
           ))}

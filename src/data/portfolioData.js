@@ -74,75 +74,76 @@ export const portfolioProjects = [
       { label: 'Inquiry Conversion', value: '+210%' },
       { label: 'Lighthouse Performance', value: '99/100' }
     ]
+  },
+  {
+    id: 'untitled-monograph',
+    title: 'Untitled Monograph',
+    subtitle: 'Editorial Lookbook & Print Architecture',
+    category: 'Brand Identity',
+    year: '2026',
+    image: '/assets/editorial-campaign.jpg',
+    accentColor: '#D8C7B5',
+    client: 'Maison Noir AW Collection',
+    deliverables: ['Editorial Publication', 'Swiss Typography', 'Custom Paper Finishing', 'Campaign Lookbook'],
+    summary: 'A stark, architectural print monograph and campaign lookbook for an international minimalist atelier.',
+    challenge: 'Translating high-concept architectural fashion garments into a tactile editorial publication that feels collectible.',
+    solution: 'We developed a stark typographic hierarchy on uncoated 180gsm stock with Japanese binding and serene dual-page photography spreads.',
+    stats: [
+      { label: 'Press Features', value: '34' },
+      { label: 'Stockist Pre-Orders', value: '+165%' },
+      { label: 'Design Index Award', value: 'Nominee' }
+    ]
   }
 ];
 
 export const studioCapabilities = [
   {
     id: 'identity',
-    featured: true,
-    gridSpan: 2,
-    title: 'Brand Identity & Logo Systems',
-    tagline: 'Built to command authority across every touchpoint.',
-    description: 'We shape timeless visual languages — from bespoke wordmarks and typography systems to color theory, tactile packaging, and brand guidelines that hold up for decades.',
-    deliverables: ['Logo & Mark Systems', 'Typography & Style Guide', 'Brand Books & Art Direction', 'Stationery & Packaging Architecture'],
-    tag: 'Core Discipline'
+    num: '01',
+    title: 'Brand Identity',
+    description: 'Bespoke typographic systems and tactile visual guidelines built to endure.',
+    image: '/assets/the-hooper.jpg',
+    tags: ['Identity Systems', 'Typography', 'Art Direction']
   },
   {
     id: 'motion-ai',
-    featured: true,
-    gridSpan: 1,
-    title: 'AI Video Ads, 3D & Motion Reels',
-    tagline: 'High-converting video engineered for modern social performance.',
-    description: 'Combining state-of-the-art AI generation, 3D fluid motion graphics, and hypnotic sound design to create thumb-stopping short-form ads that boost ROAS.',
-    deliverables: ['Short-Form Social Reels', '3D Motion Design', 'AI-Generated Ad Creatives', 'Sound Design & Spatial Audio'],
-    tag: 'High Growth'
+    num: '02',
+    title: '3D & Kinetic Motion',
+    description: 'Cinematic 3D animation and thumb-stopping kinetic reels that drive conversion.',
+    image: '/assets/velocity-motion.jpg',
+    tags: ['3D CGI', 'Kinetic Reels', 'Spatial Audio']
   },
   {
     id: 'web-dev',
-    featured: true,
-    gridSpan: 3,
-    title: 'Website Design & Modern Development',
-    tagline: 'Fast, on-brand digital experiences built to convert and scale.',
-    description: 'Bespoke UI/UX and lightning-fast React / Next.js web applications with smooth micro-interactions, seamless CMS backends, and flawless responsiveness.',
-    deliverables: ['Custom UI/UX Design', 'React / Next.js Development', 'Headless CMS Architecture', 'SEO & Performance Optimization'],
-    tag: 'Flagship'
-  },
-  {
-    id: 'graphic-design',
-    featured: false,
-    gridSpan: 1,
-    title: 'Graphic & Campaign Design',
-    tagline: 'Impactful collateral for print, digital, and live activations.',
-    description: 'Key visuals, promotional pitch decks, billboards, physical lookbooks, and high-impact digital campaign materials.',
-    deliverables: ['Investor Decks & Keynotes', 'Campaign Key Visuals', 'Print & Editorial Collateral', 'Event & Activation Design']
-  },
-  {
-    id: 'social-creative',
-    featured: false,
-    gridSpan: 1,
-    title: 'Social Media Creative Engines',
-    tagline: 'Consistent, on-brand template systems for social growth.',
-    description: 'Strategic content suites, bespoke Figma templates, and carousels engineered for brand cohesion and daily organic engagement.',
-    deliverables: ['Figma Design Systems', 'Editorial Carousels', 'Story & Post Templates', 'Content Style Guides']
+    num: '03',
+    title: 'Digital Flagships',
+    description: 'Editorial web platforms engineered with fluid interactions and instant speed.',
+    image: '/assets/aurelius-digital.jpg',
+    tags: ['Creative Web', 'React / Next.js', 'Smooth UI/UX']
   },
   {
     id: 'packaging',
-    featured: false,
-    gridSpan: 1,
-    title: 'Packaging & Unboxing Architecture',
-    tagline: 'Tactile physical materials and photorealistic 3D renders.',
-    description: 'Bespoke bottle, box, and label design paired with hyper-realistic 3D CGI rendering to create unboxing moments that drive customer retention.',
-    deliverables: ['Custom Structural Packaging', 'Photorealistic 3D CGI', 'Luxury Print Finishing', 'Unboxing Reel Directing']
+    num: '04',
+    title: 'Packaging Design',
+    description: 'Tactile physical materials and unboxing architecture paired with 3D CGI.',
+    image: '/assets/flora-botanica.jpg',
+    tags: ['Structural Design', 'Luxury Print', '3D Mockups']
   },
   {
-    id: 'ugc-content',
-    featured: false,
-    gridSpan: 3,
-    title: 'UGC & Creator Directing',
-    tagline: 'Authentic creator-style video assets that build deep trust.',
-    description: 'Scripting, directing, and editing authentic user-generated content that blends organic lifestyle storytelling with direct-response sales copy.',
-    deliverables: ['UGC Scripting & Hooks', 'Creator Talent Curation', 'Direct-Response Editing', 'A/B Creative Iterations']
+    id: 'editorial',
+    num: '05',
+    title: 'Editorial & Print',
+    description: 'High-impact Swiss typography, investor keynotes, and physical lookbooks.',
+    image: '/assets/editorial-campaign.jpg',
+    tags: ['Lookbooks', 'Pitch Decks', 'Print Collateral']
+  },
+  {
+    id: 'creative-direction',
+    num: '06',
+    title: 'Creative Direction',
+    description: 'Holistic visual strategy and commercial campaign architecture for modern brands.',
+    image: '/assets/studio-atelier.jpg',
+    tags: ['Visual Strategy', 'Design Systems', 'Campaigns']
   }
 ];
 

@@ -1,79 +1,85 @@
-import React from 'react';
-import { ChevronRight, Sparkles } from 'lucide-react';
+import React, { useRef } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { portfolioProjects } from '../data/portfolioData';
 import './Hero.css';
 
-export default function Hero({ onOpenPlanner }) {
-  return (
-    <section className="apple-hero-section" id="hero">
-      <div className="layout-wrap apple-hero-container">
+export default function Hero({ onOpenPlanner, onSelectProject }) {
+  const featured = portfolioProjects[0]; // The Hooper
+  const frameRef = useRef(null);
 
-        {/* Eyebrow tag */}
-        <div className="apple-eyebrow hero-anim-1">
-          <Sparkles size={13} className="eyebrow-icon" />
-          <span className="eyebrow-tag">TALISTA STUDIOS</span>
-          <span className="eyebrow-sep">·</span>
-          <span className="eyebrow-sub">Creative Studio · India &amp; Global</span>
+  const handleMouseMove = (e) => {
+    if (!frameRef.current) return;
+    const rect = frameRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    frameRef.current.style.transform = `perspective(1200px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (!frameRef.current) return;
+    frameRef.current.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  };
+
+  return (
+    <section className="clean-hero-section" id="hero">
+      <div className="layout-wrap clean-hero-container">
+
+        {/* Minimal Studio Tag */}
+        <div className="clean-hero-eyebrow hero-anim-1">
+          <span className="live-dot" />
+          <span>TALISTA STUDIOS — CREATIVE PRACTICE</span>
         </div>
 
-        {/* Headline */}
-        <h1 className="apple-hero-headline hero-anim-2">
-          Brands worth a <span className="titanium-text">second look.</span>
+        {/* Iconic Masked Headline */}
+        <h1 className="clean-hero-headline">
+          <span className="mask-line">
+            <span className="mask-inner mask-delay-1">We engineer brands</span>
+          </span>
+          <span className="mask-line">
+            <span className="mask-inner mask-delay-2">
+              that refuse to be <span className="serif-italic">overlooked.</span>
+            </span>
+          </span>
         </h1>
 
-        {/* Sub-headline */}
-        <p className="apple-hero-sub hero-anim-3">
-          Bespoke visual identity. Cinematic 3D motion. Ultra-fast digital architecture.
-          Engineered with surgical restraint for ambitious founders.
-        </p>
+        {/* Minimal Subhead + Action Row */}
+        <div className="clean-hero-meta hero-anim-3">
+          <p className="clean-hero-sub">
+            Brand identity, cinematic 3D motion, and custom digital flagships.
+          </p>
 
-        {/* CTA Row */}
-        <div className="apple-cta-row hero-anim-4">
-          <button onClick={onOpenPlanner} className="btn-primary apple-main-cta">
-            <span>Start a project</span>
+          <button 
+            onClick={onOpenPlanner} 
+            className="btn-studio-commission btn-roll"
+          >
+            <span className="roll-wrap">
+              <span className="roll-text">Initiate Commission</span>
+              <span className="roll-text clone" aria-hidden="true">Initiate Commission</span>
+            </span>
+            <ArrowUpRight size={15} className="commission-arrow" />
           </button>
-
-          <a href="#work" className="link-chevron">
-            <span>Explore showcase</span>
-            <ChevronRight size={16} />
-          </a>
         </div>
 
-        {/* Device Showcase Frame */}
-        <div className="apple-hero-device-frame glass-card hero-anim-5">
-          <div className="device-screen">
-            <img
-              src="/assets/the-hooper.jpg"
-              alt="Talista Studios Featured Showcase"
-              className="device-preview-img"
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-            />
-            <div className="device-caption-bar">
-              <div className="device-badge">
-                <span className="pulse-dot" />
-                <span>Featured Studio Case Study // The Hooper</span>
-              </div>
-              <span className="device-meta">Identity · Editorial · Packaging</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Specs Ticker */}
-        <div className="apple-specs-ticker hero-anim-5">
-          <div className="spec-item">
-            <div className="spec-big-num titanium-text">42+</div>
-            <div className="spec-desc">Global Brand Launches</div>
-          </div>
-          <div className="spec-divider" />
-          <div className="spec-item">
-            <div className="spec-big-num titanium-text">3.8x</div>
-            <div className="spec-desc">Average ROAS Lift</div>
-          </div>
-          <div className="spec-divider" />
-          <div className="spec-item">
-            <div className="spec-big-num titanium-text">100%</div>
-            <div className="spec-desc">Founder-Led Direction</div>
+        {/* Pure Cinematic Showcase with 3D Physics */}
+        <div 
+          ref={frameRef}
+          className="clean-showcase-frame hero-anim-4 sheen-card"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onClick={() => onSelectProject && onSelectProject(featured)}
+          title="View The Hooper Case Study"
+        >
+          <img
+            src={featured.image}
+            alt={featured.title}
+            className="clean-showcase-img"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <div className="clean-showcase-tag">
+            <span>Featured Commission // {featured.title}</span>
+            <span className="tag-arrow">↗</span>
           </div>
         </div>
 

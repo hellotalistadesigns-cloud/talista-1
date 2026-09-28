@@ -10,12 +10,15 @@
 
 .apple-process-title {
   font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 350;
+  letter-spacing: -0.03em;
   margin-bottom: 14px;
 }
 
 .apple-process-sub {
   color: var(--ink-secondary);
   font-size: 1.1rem;
+  font-weight: 300;
 }
 
 .apple-process-pipeline {
@@ -53,8 +56,9 @@
 .step-num {
   font-family: var(--font-display);
   font-size: 2.4rem;
-  font-weight: 800;
+  font-weight: 300;
   line-height: 1;
+  color: var(--ink-tertiary);
 }
 
 .step-time {
@@ -68,9 +72,10 @@
 }
 
 .step-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
   color: var(--ink);
 }
 

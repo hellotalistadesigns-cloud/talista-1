@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { portfolioProjects } from '../data/portfolioData';
-import { ChevronRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import './WorkGallery.css';
 
 export default function WorkGallery({ onSelectProject }) {
@@ -12,19 +12,42 @@ export default function WorkGallery({ onSelectProject }) {
     ? portfolioProjects
     : portfolioProjects.filter(p => p.category === activeFilter);
 
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -5.5;
+    const rotateY = ((x - centerX) / centerX) * 5.5;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale3d(1.015, 1.015, 1.015)`;
+  };
+
+  const handleCardMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = '';
+  };
+
   return (
     <section className="apple-work-section" id="work">
       <div className="layout-wrap">
 
-        {/* Section Header */}
+        {/* Section Header with Masked Title */}
         <div className="apple-work-header reveal">
-          <span className="section-label">STUDIO SHOWCASE</span>
+          <span className="section-label">SHOWCASE</span>
           <h2 className="apple-work-title">
-            Crafted for maximum <span className="titanium-text">commercial impact.</span>
+            <span className="mask-line">
+              <span className="mask-inner">
+                Selected <span className="serif-italic">Commissions.</span>
+              </span>
+            </span>
           </h2>
-          <p className="apple-work-sub">
-            Explore recent brand launches, custom design systems, and digital flagships.
-          </p>
         </div>
 
         {/* Filter Tabs */}
@@ -48,15 +71,16 @@ export default function WorkGallery({ onSelectProject }) {
             {filteredProjects.map((project, i) => (
               <div
                 key={project.id}
-                className="apple-showcase-card glass-card"
-                style={{ animationDelay: `${i * 0.07}s` }}
+                className={`apple-showcase-card card-reveal spotlight-card sheen-card reveal reveal-delay-${(i % 2) + 1}`}
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
                 onClick={() => onSelectProject(project)}
               >
-                <div className="card-image-box">
+                <div className="card-image-box curtain-frame">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="card-product-img"
+                    className="card-product-img curtain-img"
                     loading="lazy"
                     decoding="async"
                   />
@@ -73,9 +97,12 @@ export default function WorkGallery({ onSelectProject }) {
                   </div>
 
                   <div className="card-action-row">
-                    <button className="link-chevron card-link-btn">
-                      <span>View case study</span>
-                      <ChevronRight size={15} />
+                    <button className="link-chevron card-link-btn btn-roll">
+                      <span className="roll-wrap">
+                        <span className="roll-text">View case study</span>
+                        <span className="roll-text clone" aria-hidden="true">View case study</span>
+                      </span>
+                      <ArrowUpRight size={15} className="action-arrow" />
                     </button>
                     <span className="card-year-tag">{project.year}</span>
                   </div>

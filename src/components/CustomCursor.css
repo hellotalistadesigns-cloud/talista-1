@@ -1,0 +1,87 @@
+/* ============================================================
+   Awwwards Interactive Inertia Cursor
+   ============================================================ */
+
+.luxury-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--apple-blue);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -5px;
+  margin-left: -5px;
+  box-shadow: 0 0 12px var(--apple-blue-glow);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              margin 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.25s ease,
+              box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* Hover over clickable links/buttons */
+.luxury-cursor.cursor-hover {
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 113, 227, 0.3);
+}
+
+[data-theme="light"] .luxury-cursor.cursor-hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Hover over showcase viewport or cards (pill with VIEW / EXPLORE) */
+.luxury-cursor.cursor-has-text {
+  width: auto;
+  height: 34px;
+  padding: 0 16px;
+  margin-top: -17px;
+  margin-left: -35px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+[data-theme="light"] .luxury-cursor.cursor-has-text {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cursor-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.luxury-cursor.cursor-has-text .cursor-label {
+  opacity: 1;
+}
+
+/* Hide cursor on touchscreen */
+@media (pointer: coarse) {
+  .luxury-cursor {
+    display: none !important;
+  }
+}

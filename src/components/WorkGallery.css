@@ -10,11 +10,14 @@
 
 .apple-work-title {
   font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 350;
+  letter-spacing: -0.03em;
   margin-bottom: 14px;
 }
 
 .apple-work-sub {
   font-size: 1.1rem;
+  font-weight: 300;
   color: var(--ink-secondary);
 }
 
@@ -67,7 +70,7 @@
 .apple-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  gap: 32px;
 }
 
 .apple-showcase-card {
@@ -77,20 +80,19 @@
   display: flex;
   flex-direction: column;
   background: var(--bg-card);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  will-change: transform;
-  /* Mount animation: fires on initial load AND every filter re-render */
-  animation: cardIn 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+  border: 1px solid var(--line);
 }
 
-@keyframes cardIn {
-  from { opacity: 0; transform: translate3d(0, 20px, 0); }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+.apple-showcase-card.revealed {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.45s ease;
+  will-change: transform;
 }
 
 .apple-showcase-card:hover {
-  transform: translate3d(0, -4px, 0) scale(1.01);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  border-color: var(--panel-border-hover);
+  box-shadow: 0 32px 70px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(41, 151, 255, 0.12);
 }
 
 .card-image-box {
@@ -105,26 +107,35 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
 .apple-showcase-card:hover .card-product-img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .card-top-pill {
   position: absolute;
   top: 18px;
   left: 18px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.74rem;
-  font-weight: 600;
-  padding: 5px 12px;
+  font-weight: 500;
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+  z-index: 2;
+}
+
+.apple-showcase-card:hover .card-top-pill {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .card-info-box {
@@ -139,21 +150,28 @@
   font-size: 0.76rem;
   font-weight: 600;
   color: var(--apple-blue);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .card-main-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin: 6px 0;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin: 8px 0;
   color: var(--ink);
+  transition: color 0.3s ease;
+}
+
+.apple-showcase-card:hover .card-main-title {
+  color: #ffffff;
 }
 
 .card-summary {
   font-size: 0.95rem;
+  font-weight: 300;
   color: var(--ink-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .card-action-row {
@@ -161,18 +179,37 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 24px;
-  padding-top: 16px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
 .card-link-btn {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.action-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--apple-blue);
+}
+
+.apple-showcase-card:hover .action-arrow {
+  transform: translate(3px, -3px);
+  color: #ffffff;
 }
 
 .card-year-tag {
   font-size: 0.8rem;
   color: var(--ink-secondary);
   font-weight: 500;
+  font-family: var(--font-mono, monospace);
 }
 
 /* Empty state */

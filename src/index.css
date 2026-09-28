@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap');
 
 :root {
   color-scheme: dark;
@@ -42,8 +42,9 @@
   --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
   --modal-overlay: rgba(0, 0, 0, 0.78);
 
-  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', Georgia, serif;
 
   --radius-xs: 6px;
   --radius-sm: 12px;
@@ -148,12 +149,32 @@ body {
   }
 }
 
-/* Apple Typography */
-h1, h2, h3, h4, .apple-title {
+/* Apple Minimalist Typography — Sleek, refined, and elegant */
+h1 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 350;
   letter-spacing: -0.035em;
   line-height: 1.08;
+}
+
+h2, .apple-title {
+  font-family: var(--font-display);
+  font-weight: 350;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 .titanium-text {
@@ -161,6 +182,13 @@ h1, h2, h3, h4, .apple-title {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .blue-text {
@@ -349,7 +377,7 @@ select option {
 }
 
 /* ============================================================
-   Global Keyframes
+   Global Keyframes & Animations
    ============================================================ */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -362,46 +390,249 @@ select option {
 }
 
 @keyframes revealUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translate3d(0, 32px, 0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0); 
+  }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.96); }
   to   { opacity: 1; transform: scale(1); }
 }
 
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.08); }
+}
+
 /* ============================================================
-   Scroll Reveal System (Hardware-accelerated)
-   Use class="reveal" on any element. JS IntersectionObserver
-   adds "revealed" when the element enters the viewport.
+   Award-Winning Reveal & Stagger System
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
+  transform: translate3d(0, 30px, 0);
   will-change: opacity, transform;
-  transition: opacity 0.55s cubic-bezier(0.25, 0.1, 0.25, 1),
-              transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.revealed {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  will-change: auto;
+}
+
+/* Masked Title Animation: Slides out from behind a pristine mask */
+.mask-line {
+  display: block;
+  overflow: hidden;
+  line-height: 1.1;
+  padding-bottom: 2px;
+}
+
+.mask-inner {
+  display: block;
+  transform: translate3d(0, 115%, 0) rotate(1.4deg);
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.revealed .mask-inner,
+.mask-inner.revealed {
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  opacity: 1;
+}
+
+/* Curtain Image Reveal (Camera Shutter Clip-Path Wipe) */
+.curtain-frame {
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.95s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: clip-path;
+}
+
+.revealed .curtain-frame,
+.curtain-frame.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+.curtain-img {
+  transform: scale(1.15);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.revealed .curtain-img,
+.curtain-frame.revealed .curtain-img {
+  transform: scale(1);
+}
+
+/* ============================================================
+   Cinematic 3D Card Fly-In Physics
+   ============================================================ */
+.card-reveal {
+  opacity: 0;
+  transform: perspective(1200px) translate3d(0, 120px, -60px) rotateX(16deg) scale(0.88);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease,
+              border-color 0.35s ease;
+  will-change: opacity, transform;
+}
+
+/* Staggered directional entry for showcase cards */
+.apple-cards-grid > .card-reveal:nth-child(odd) {
+  transform: perspective(1200px) translate3d(-40px, 120px, -60px) rotateX(16deg) rotateY(-6deg) scale(0.88);
+}
+
+.apple-cards-grid > .card-reveal:nth-child(even) {
+  transform: perspective(1200px) translate3d(40px, 120px, -60px) rotateX(16deg) rotateY(6deg) scale(0.88);
+}
+
+/* Staggered directional entry for 3-column disciplines & about */
+.disciplines-grid > .card-reveal:nth-child(3n+1),
+.about-spec-grid > .card-reveal:nth-child(3n+1) {
+  transform: perspective(1200px) translate3d(-45px, 120px, -60px) rotateX(16deg) rotateY(-7deg) scale(0.88);
+}
+
+.disciplines-grid > .card-reveal:nth-child(3n+2),
+.about-spec-grid > .card-reveal:nth-child(3n+2) {
+  transform: perspective(1200px) translate3d(0px, 130px, -60px) rotateX(16deg) scale(0.88);
+}
+
+.disciplines-grid > .card-reveal:nth-child(3n+3),
+.about-spec-grid > .card-reveal:nth-child(3n+3) {
+  transform: perspective(1200px) translate3d(45px, 120px, -60px) rotateX(16deg) rotateY(7deg) scale(0.88);
+}
+
+/* When revealed: swoops up and snaps into full perspective */
+.card-reveal.revealed,
+.revealed.card-reveal,
+.revealed .card-reveal {
+  opacity: 1;
+  transform: perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
+}
+
+/* Mobile phone fly-in: strictly vertical and clamped to prevent horizontal overflow */
+@media (max-width: 768px) {
+  .card-reveal,
+  .apple-cards-grid > .card-reveal:nth-child(odd),
+  .apple-cards-grid > .card-reveal:nth-child(even),
+  .disciplines-grid > .card-reveal:nth-child(3n+1),
+  .disciplines-grid > .card-reveal:nth-child(3n+2),
+  .disciplines-grid > .card-reveal:nth-child(3n+3),
+  .about-spec-grid > .card-reveal:nth-child(3n+1),
+  .about-spec-grid > .card-reveal:nth-child(3n+2),
+  .about-spec-grid > .card-reveal:nth-child(3n+3) {
+    transform: perspective(800px) translate3d(0, 60px, -20px) rotateX(10deg) scale(0.94);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-reveal.revealed,
+  .revealed.card-reveal,
+  .revealed .card-reveal {
+    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1) !important;
+  }
+}
+
+/* Mouse-Tracking Card Spotlight */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    560px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.12),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Sheen Sweep */
+.sheen-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-card::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    65deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sheen-card:hover::after {
+  transform: translateX(100%);
+}
+
+/* Rolling Text Buttons */
+.btn-roll {
+  position: relative;
+  overflow: hidden;
+}
+
+.roll-wrap {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3em;
+}
+
+.roll-text {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.roll-text.clone {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.btn-roll:hover .roll-text {
+  transform: translate3d(0, -100%, 0);
 }
 
 /* Stagger delays for child groups */
-.reveal-delay-1 { transition-delay: 0.06s; }
-.reveal-delay-2 { transition-delay: 0.12s; }
-.reveal-delay-3 { transition-delay: 0.18s; }
-.reveal-delay-4 { transition-delay: 0.24s; }
-.reveal-delay-5 { transition-delay: 0.30s; }
-
-/* Off-screen layout optimization: skips paint until scrolled near */
-.apple-capabilities-section,
-.apple-process-section,
-.apple-about-section,
-.apple-planner-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 650px;
-}
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.40s; }

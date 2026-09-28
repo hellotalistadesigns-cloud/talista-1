@@ -12,12 +12,15 @@
 
 .apple-planner-title {
   font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 350;
+  letter-spacing: -0.03em;
   margin-bottom: 14px;
 }
 
 .apple-planner-sub {
   color: var(--ink-secondary);
   font-size: 1.1rem;
+  font-weight: 300;
 }
 
 .apple-planner-layout {
@@ -48,7 +51,7 @@
 
 .step-tag {
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--apple-blue);
   background: rgba(0, 113, 227, 0.12);
   border: 1px solid rgba(0, 113, 227, 0.25);

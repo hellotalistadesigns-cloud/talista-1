@@ -12,6 +12,8 @@
 
 .about-main-title {
   font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 350;
+  letter-spacing: -0.03em;
   margin-bottom: 20px;
 }
 
@@ -98,8 +100,9 @@
 }
 
 .founder-title {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .founder-subtitle {

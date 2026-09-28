@@ -1,219 +1,292 @@
-.apple-hero-section {
-  padding-top: 140px;
-  padding-bottom: 90px;
-  text-align: center;
+/* ============================================================
+   Clean, Spacious & Elegant Design Studio Hero
+   ============================================================ */
+
+.clean-hero-section {
+  padding-top: 125px;
+  padding-bottom: 70px;
   position: relative;
+  overflow: hidden;
 }
 
-.apple-hero-container {
+.clean-hero-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: left;
 }
 
-/* Hero stagger entrance animations */
-.hero-anim-1 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.05s both; }
-.hero-anim-2 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s both; }
-.hero-anim-3 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.25s both; }
-.hero-anim-4 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.35s both; }
-.hero-anim-5 { animation: revealUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.50s both; }
+/* Stagger entrance animations */
+.hero-anim-1 { animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both; }
+.hero-anim-3 { animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
+.hero-anim-4 { animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
 
-/* Eyebrow */
-.apple-eyebrow {
-  display: flex;
+/* 1. Quiet Studio Eyebrow */
+.clean-hero-eyebrow {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 22px;
-  letter-spacing: 0.01em;
-}
-
-.eyebrow-icon {
-  color: var(--apple-blue);
-}
-
-.eyebrow-tag {
-  color: var(--apple-blue);
-  letter-spacing: 0.08em;
-  font-weight: 700;
   font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--apple-blue);
+  font-weight: 500;
+  margin-bottom: 22px;
 }
 
-.eyebrow-sep {
-  color: var(--ink-tertiary);
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--apple-blue);
+  box-shadow: 0 0 10px var(--apple-blue);
+  animation: pulseGlow 2.2s ease-in-out infinite;
 }
 
-.eyebrow-sub {
-  color: var(--ink-secondary);
-  font-size: 0.8rem;
+/* 2. Headline with Line-Mask Reveals */
+.clean-hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.8vw, 5.6rem);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  color: var(--ink);
+  max-width: 1050px;
 }
 
-.apple-hero-headline {
-  font-size: clamp(2.3rem, 8.5vw, 5.4rem);
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.apple-hero-sub {
-  margin-top: 18px;
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
-  max-width: 700px;
-  color: var(--ink-secondary);
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
-}
-
-.apple-cta-row {
-  margin-top: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-
-.apple-main-cta {
-  padding: 13px 30px;
-  font-size: 0.96rem;
-}
-
-/* Device Showcase Screen */
-.apple-hero-device-frame {
-  margin-top: 64px;
-  width: 100%;
-  max-width: 1100px;
-  border-radius: var(--radius-lg);
+.mask-line {
+  display: block;
   overflow: hidden;
-  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.9);
-  border: 1px solid var(--panel-border);
-  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-              box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  line-height: 1.08;
+  padding-bottom: 4px;
+}
+
+.mask-inner {
+  display: block;
+  transform: translate3d(0, 115%, 0) rotate(1.2deg);
+  animation: maskSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform;
 }
 
-.apple-hero-device-frame:hover {
-  transform: translate3d(0, -6px, 0);
-  box-shadow: 0 60px 120px -20px rgba(0, 0, 0, 0.95),
-              0 0 0 1px var(--panel-border-hover);
+.mask-delay-1 { animation-delay: 0.08s; }
+.mask-delay-2 { animation-delay: 0.22s; }
+
+@keyframes maskSlideUp {
+  from {
+    transform: translate3d(0, 115%, 0) rotate(1.2deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
 }
 
-.device-screen {
+.clean-hero-headline .serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--titanium-gold);
+}
+
+[data-theme="light"] .clean-hero-headline .serif-italic {
+  color: #8c6411;
+}
+
+/* 3. Subhead & Action Row */
+.clean-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 44px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.clean-hero-sub {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 300;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  max-width: 580px;
+  letter-spacing: -0.01em;
+}
+
+/* Rolling Text Button */
+.btn-studio-commission {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.90rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+[data-theme="light"] .btn-studio-commission {
+  background: #000000;
+  color: #ffffff;
+}
+
+.btn-studio-commission:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .btn-studio-commission:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-roll {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
   overflow: hidden;
 }
 
-.device-preview-img {
+.roll-wrap {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3em;
+}
+
+.roll-text {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.roll-text.clone {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.btn-roll:hover .roll-text {
+  transform: translate3d(0, -100%, 0);
+}
+
+.commission-arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn-studio-commission:hover .commission-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* 4. Single Pure Cinematic Showcase Frame */
+.clean-showcase-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: #09090b;
+  border: 1px solid var(--panel-border);
+  cursor: pointer;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+[data-theme="light"] .clean-showcase-frame {
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.12);
+}
+
+.clean-showcase-frame:hover {
+  transform: translate3d(0, -4px, 0);
+  border-color: var(--panel-border-hover);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.85);
+}
+
+.clean-showcase-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
-.device-caption-bar {
+.clean-showcase-frame:hover .clean-showcase-img {
+  transform: scale(1.025);
+}
+
+.clean-showcase-tag {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 16px 28px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
-  display: flex;
-  justify-content: space-between;
+  bottom: 20px;
+  left: 24px;
+  display: inline-flex;
   align-items: center;
-  backdrop-filter: blur(8px);
-}
-
-.device-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-.device-meta {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Specs Ticker */
-.apple-specs-ticker {
-  margin-top: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  width: 100%;
-  max-width: 860px;
-  border-top: 1px solid var(--line);
-  padding-top: 48px;
-}
-
-.spec-item {
-  text-align: center;
-}
-
-.spec-big-num {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.spec-desc {
-  margin-top: 8px;
-  font-size: 0.88rem;
-  color: var(--ink-secondary);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  font-size: 0.82rem;
   font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.spec-divider {
-  width: 1px;
-  height: 48px;
-  background: var(--line);
+.clean-showcase-frame:hover .clean-showcase-tag {
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateY(-2px);
 }
 
+.tag-arrow {
+  color: var(--apple-blue);
+  font-weight: 700;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .apple-hero-section {
-    padding-top: 100px;
-    padding-bottom: 50px;
+  .clean-hero-section {
+    padding-top: 95px;
+    padding-bottom: 45px;
   }
-  .desktop-br {
-    display: none;
+
+  .clean-hero-headline {
+    font-size: clamp(2.4rem, 10vw, 3.4rem);
   }
-  .apple-cta-row {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    gap: 14px;
-  }
-  .apple-main-cta {
-    width: 100%;
-  }
-  .apple-hero-device-frame {
-    margin-top: 36px;
-    border-radius: var(--radius-md);
-  }
-  .apple-specs-ticker {
-    margin-top: 50px;
-    padding-top: 36px;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .spec-divider {
-    display: none;
-  }
-  .device-caption-bar {
+
+  .clean-hero-meta {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
-    padding: 12px 18px;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .btn-studio-commission {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .clean-showcase-frame {
+    border-radius: var(--radius-md);
+  }
+
+  .clean-showcase-tag {
+    bottom: 14px;
+    left: 14px;
+    font-size: 0.74rem;
+    padding: 5px 12px;
   }
 }

@@ -3,11 +3,9 @@ import { Sun, Moon, ChevronRight, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { name: 'Overview', href: '#hero', id: 'hero' },
-  { name: 'Showcase', href: '#work', id: 'work' },
-  { name: 'Capabilities', href: '#capabilities', id: 'capabilities' },
-  { name: 'Process', href: '#process', id: 'process' },
-  { name: 'Studio', href: '#about', id: 'about' },
+  { name: 'Home', href: '#hero', id: 'hero' },
+  { name: 'Work', href: '#work', id: 'work' },
+  { name: 'About', href: '#about', id: 'about' },
   { name: 'Contact', href: '#contact', id: 'contact' },
 ];
 
@@ -76,10 +74,13 @@ export default function Navbar({ theme, toggleTheme, onOpenPlanner }) {
             <a
               key={link.name}
               href={link.href}
-              className={`apple-nav-item ${activeSection === link.id ? 'active' : ''}`}
+              className={`apple-nav-item btn-roll ${activeSection === link.id ? 'active' : ''}`}
               aria-current={activeSection === link.id ? 'page' : undefined}
             >
-              {link.name}
+              <span className="roll-wrap">
+                <span className="roll-text">{link.name}</span>
+                <span className="roll-text clone" aria-hidden="true">{link.name}</span>
+              </span>
             </a>
           ))}
         </nav>
@@ -95,8 +96,11 @@ export default function Navbar({ theme, toggleTheme, onOpenPlanner }) {
             {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
           </button>
 
-          <button onClick={onOpenPlanner} className="btn-primary apple-cta-btn">
-            <span>Start a Project</span>
+          <button onClick={onOpenPlanner} className="btn-primary apple-cta-btn btn-roll">
+            <span className="roll-wrap">
+              <span className="roll-text">Start a Project</span>
+              <span className="roll-text clone" aria-hidden="true">Start a Project</span>
+            </span>
           </button>
 
           <button

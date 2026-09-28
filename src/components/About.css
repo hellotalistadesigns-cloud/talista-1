@@ -1,0 +1,195 @@
+/* ============================================================
+   Sleek & Minimalist About Section
+   ============================================================ */
+
+.clean-about-section {
+  padding: 100px 0;
+  border-top: 1px solid var(--line);
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.clean-about-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-header-block {
+  max-width: 900px;
+  margin-bottom: 50px;
+}
+
+.about-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-top: 10px;
+}
+
+.about-headline .serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--titanium-gold);
+}
+
+[data-theme="light"] .about-headline .serif-italic {
+  color: #8c6411;
+}
+
+/* Studio Visual Banner */
+.about-studio-banner {
+  margin-bottom: 40px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+}
+
+.studio-banner-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+}
+
+.studio-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.about-studio-banner:hover .studio-banner-img {
+  transform: scale(1.03);
+}
+
+.studio-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  pointer-events: none;
+}
+
+.studio-banner-meta {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.banner-tag {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.banner-location {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* 3-Column Spec Matrix */
+.about-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.about-spec-card {
+  padding: 32px 28px;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-spec-card.revealed {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+  will-change: transform;
+}
+
+.about-spec-card:hover {
+  background: var(--panel-hover);
+  border-color: var(--panel-border-hover);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(41, 151, 255, 0.1);
+}
+
+.spec-tag {
+  font-family: monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--apple-blue);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.spec-heading {
+  font-size: 1.22rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.spec-body {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .clean-about-section {
+    padding: 70px 0;
+  }
+
+  .studio-banner-img-wrap {
+    aspect-ratio: 16 / 10;
+  }
+
+  .studio-banner-meta {
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    font-size: 0.68rem;
+  }
+
+  .banner-tag {
+    padding: 3px 10px;
+  }
+
+  .about-spec-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-header-block {
+    margin-bottom: 32px;
+  }
+}

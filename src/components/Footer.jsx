@@ -40,36 +40,29 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Apple Footnote Disclaimer */}
-        <div className="apple-footnotes reveal">
-          <p>1. Average ROAS and conversion metrics are calculated across client cohorts over a 6-month trailing period post-launch.</p>
-          <p>2. Studio availability is updated dynamically based on quarterly client bandwidth to guarantee direct founder oversight.</p>
-        </div>
-
         {/* Directory Grid */}
         <div className="apple-footer-directory reveal">
           <div className="directory-column">
-            <span className="directory-heading">Explore</span>
+            <span className="directory-heading">Navigation</span>
             <a href="#hero">Overview</a>
-            <a href="#work">Case Studies</a>
-            <a href="#capabilities">Disciplines</a>
-            <a href="#process">Methodology</a>
+            <a href="#work">Showcase</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#contact">Start a Project</a>
           </div>
 
           <div className="directory-column">
             <span className="directory-heading">Disciplines</span>
-            <a href="#capabilities">Brand Identity Systems</a>
-            <a href="#capabilities">AI Video &amp; 3D Motion</a>
-            <a href="#capabilities">Website Architecture</a>
-            <a href="#capabilities">Packaging &amp; Unboxing</a>
+            <a href="#capabilities">Brand Identity</a>
+            <a href="#capabilities">3D &amp; Motion</a>
+            <a href="#capabilities">Digital Flagships</a>
+            <a href="#capabilities">Packaging</a>
           </div>
 
           <div className="directory-column">
-            <span className="directory-heading">Studio</span>
-            <a href="#about">About &amp; Philosophy</a>
-            <a href="#contact">Start a Project</a>
-            <a href="https://instagram.com/talistadesigns" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <span className="directory-heading">Connect</span>
             <a href="mailto:hello@talista.in">hello@talista.in</a>
+            <a href="https://instagram.com/talistadesigns" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#contact">Commission Inquiries</a>
           </div>
         </div>
 

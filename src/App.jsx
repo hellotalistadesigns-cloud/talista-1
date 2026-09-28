@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Manifesto from './components/Manifesto';
+import MarqueeTicker from './components/MarqueeTicker';
 import WorkGallery from './components/WorkGallery';
 import CapabilitiesBento from './components/CapabilitiesBento';
-import CreativeProcess from './components/CreativeProcess';
-import FounderAbout from './components/FounderAbout';
+import About from './components/About';
 import ProjectPlanner from './components/ProjectPlanner';
 import Footer from './components/Footer';
 import CaseStudyModal from './components/CaseStudyModal';
@@ -18,9 +20,45 @@ export default function App() {
   });
 
   const [selectedProject, setSelectedProject] = useState(null);
+  const lenisRef = useRef(null);
 
   // Activate scroll-reveal IntersectionObserver for the whole page
   useScrollReveal();
+
+  // Initialize Lenis smooth inertia scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.5,
+    });
+
+    lenisRef.current = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    const rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
+
+  // Pause smooth scroll when modal is open
+  useEffect(() => {
+    if (lenisRef.current) {
+      if (selectedProject) {
+        lenisRef.current.stop();
+      } else {
+        lenisRef.current.start();
+      }
+    }
+  }, [selectedProject]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -34,7 +72,11 @@ export default function App() {
   const handleOpenPlanner = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(contactSection);
+      } else {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -50,14 +92,26 @@ export default function App() {
         onOpenPlanner={handleOpenPlanner} 
       />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections — Streamlined, Work-First */}
       <main>
-        <Hero onOpenPlanner={handleOpenPlanner} />
-        <Manifesto />
+        <Hero 
+          onOpenPlanner={handleOpenPlanner} 
+          onSelectProject={(project) => setSelectedProject(project)} 
+        />
+        
+        {/* Infinite 60fps Marquee Ticker */}
+        <MarqueeTicker />
+
+        {/* Core Showcase */}
         <WorkGallery onSelectProject={(project) => setSelectedProject(project)} />
+
+        {/* Studio Disciplines */}
         <CapabilitiesBento onOpenPlanner={handleOpenPlanner} />
-        <CreativeProcess />
-        <FounderAbout />
+
+        {/* Minimalist Studio Overview */}
+        <About />
+
+        {/* Direct Project Inquiry */}
         <ProjectPlanner />
       </main>
 
