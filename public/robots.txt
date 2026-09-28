@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://talistadesigns.com/sitemap.xml
+Sitemap: https://talista.in/sitemap.xml

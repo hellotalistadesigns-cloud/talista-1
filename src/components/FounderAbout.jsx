@@ -65,9 +65,9 @@ export default function FounderAbout() {
                 <Mail size={15} />
                 <span>hello@talista.in</span>
               </a>
-              <a href="https://talistadesigns.com" target="_blank" rel="noopener noreferrer" className="founder-channel-link">
+              <a href="https://talista.in" target="_blank" rel="noopener noreferrer" className="founder-channel-link">
                 <Globe size={15} />
-                <span>talistadesigns.com</span>
+                <span>talista.in</span>
               </a>
               <a href="https://instagram.com/talistadesigns" target="_blank" rel="noopener noreferrer" className="founder-channel-link">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
