@@ -4,8 +4,10 @@ import './CaseStudyModal.css';
 
 export default function CaseStudyModal({ project, onClose, onStartProject }) {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(project?.image);
 
   useEffect(() => {
+    setSelectedImage(project?.image);
     setIsPlayingVideo(false);
   }, [project]);
 
@@ -37,13 +39,32 @@ export default function CaseStudyModal({ project, onClose, onStartProject }) {
 
           {/* Media Header */}
           <div className="modal-hero-frame">
-            <img src={project.image} alt={project.title} className="modal-hero-photo" decoding="async" />
+            <img src={selectedImage || project.image} alt={project.title} className="modal-hero-photo" decoding="async" />
             <div className="modal-hero-gradient" />
             <div className="modal-hero-tags">
               <span className="apple-tag-pill">{project.category}</span>
               <span className="apple-year-pill">{project.year}</span>
             </div>
           </div>
+
+          {/* Multi-Photo Gallery Strip */}
+          {project.gallery && project.gallery.length > 1 && (
+            <div className="modal-gallery-strip">
+              <span className="modal-gallery-label">Project Gallery ({project.gallery.length} Views):</span>
+              <div className="modal-gallery-thumbs">
+                {project.gallery.map((imgUrl, idx) => (
+                  <button
+                    key={idx}
+                    className={`gallery-thumb-btn ${selectedImage === imgUrl ? 'active' : ''}`}
+                    onClick={() => setSelectedImage(imgUrl)}
+                    aria-label={`View photo ${idx + 1}`}
+                  >
+                    <img src={imgUrl} alt={`${project.title} view ${idx + 1}`} className="thumb-mini-img" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="modal-sheet-body">
             <div className="modal-meta-row">

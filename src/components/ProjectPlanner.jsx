@@ -109,7 +109,7 @@ export default function ProjectPlanner() {
           particleCount: 100,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ['#0071E3', '#2997FF', '#FFFFFF', '#F5E3CA']
+          colors: ['#C23348', '#E11D48', '#FFFFFF', '#F5E3CA']
         });
         setIsSubmitted(true);
       } else {

@@ -24,15 +24,15 @@
   --ink-secondary: #9a9aa0;
   --ink-tertiary: #6e6e73;
 
-  /* Apple Accents: Electric Blue & Natural Titanium */
-  --apple-blue: #0071e3;
-  --apple-blue-hover: #0077ed;
-  --apple-blue-glow: rgba(0, 113, 227, 0.35);
+  /* Studio Accents: Luxury Carmine Maroon & Natural Titanium */
+  --apple-blue: #c23348;
+  --apple-blue-hover: #d43f55;
+  --apple-blue-glow: rgba(194, 51, 72, 0.4);
   
   --titanium-gold: #f5e3ca;
   --titanium-silver: #e3e4e8;
   --titanium-gradient: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
-  --blue-gradient: linear-gradient(135deg, #2997ff 0%, #0071e3 100%);
+  --blue-gradient: linear-gradient(135deg, #d43f55 0%, #c23348 100%);
   --gold-gradient: linear-gradient(135deg, #f5e3ca 0%, #d4af37 100%);
   
   --header-bg: rgba(0, 0, 0, 0.82);
@@ -78,14 +78,14 @@
   --ink-secondary: #6e6e73;
   --ink-tertiary: #86868b;
 
-  --apple-blue: #0071e3;
-  --apple-blue-hover: #0077ed;
-  --apple-blue-glow: rgba(0, 113, 227, 0.2);
+  --apple-blue: #991b1b;
+  --apple-blue-hover: #b91c1c;
+  --apple-blue-glow: rgba(153, 27, 27, 0.25);
 
   --titanium-gold: #b38622;
   --titanium-silver: #515154;
   --titanium-gradient: linear-gradient(180deg, #1d1d1f 0%, #6e6e73 100%);
-  --blue-gradient: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
+  --blue-gradient: linear-gradient(135deg, #b91c1c 0%, #881337 100%);
   --gold-gradient: linear-gradient(135deg, #b38622 0%, #8c6411 100%);
 
   --header-bg: rgba(245, 245, 247, 0.85);
@@ -140,6 +140,12 @@ body {
   padding: 0 24px;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .layout-wrap {
+    padding: 0 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -510,8 +516,8 @@ select option {
   transform: perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
 }
 
-/* Mobile phone animation enhancements */
-@media (max-width: 768px) {
+/* Tablet & Mobile touch animation enhancements */
+@media (max-width: 1024px) {
   .card-reveal,
   .apple-cards-grid > .card-reveal:nth-child(odd),
   .apple-cards-grid > .card-reveal:nth-child(even),

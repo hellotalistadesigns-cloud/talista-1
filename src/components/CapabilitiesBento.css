@@ -175,9 +175,18 @@
 
 /* Responsive adjustments */
 @media (max-width: 1040px) {
+  .apple-capabilities-section {
+    padding: 95px 0;
+  }
+  .apple-cap-header {
+    margin-bottom: 42px;
+  }
   .disciplines-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+  .discipline-content {
+    padding: 20px 22px 24px;
   }
 }
 

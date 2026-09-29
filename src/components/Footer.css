@@ -171,6 +171,15 @@
   border-color: var(--panel-border-hover);
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .apple-footer-directory {
+    gap: 24px;
+  }
+  .apple-legal-row {
+    gap: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   .apple-footer-directory {
     grid-template-columns: 1fr;
