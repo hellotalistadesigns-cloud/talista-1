@@ -22,33 +22,17 @@
 
 /* 1. Quiet Studio Eyebrow */
 .clean-hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.76rem;
-  letter-spacing: 0.09em;
+  display: inline-block;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #c23348;
   font-weight: 600;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 [data-theme="light"] .clean-hero-eyebrow {
   color: #881337;
-}
-
-.clean-hero-eyebrow .live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #c23348;
-  box-shadow: 0 0 10px rgba(194, 51, 72, 0.7);
-  animation: pulseGlow 2.2s ease-in-out infinite;
-}
-
-[data-theme="light"] .clean-hero-eyebrow .live-dot {
-  background: #881337;
-  box-shadow: 0 0 8px rgba(136, 19, 55, 0.6);
 }
 
 /* 2. Headline with Line-Mask Reveals */

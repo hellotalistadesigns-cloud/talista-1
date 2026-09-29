@@ -30,7 +30,6 @@ export default function Hero({ onOpenPlanner, onSelectProject }) {
 
         {/* Minimal Studio Tag */}
         <div className="clean-hero-eyebrow hero-anim-1">
-          <span className="live-dot" />
           <span>TALISTA STUDIOS — CREATIVE PRACTICE</span>
         </div>
 
