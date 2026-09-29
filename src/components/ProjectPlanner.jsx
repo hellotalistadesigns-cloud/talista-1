@@ -346,10 +346,10 @@ export default function ProjectPlanner() {
             <div className="apple-status-card glass-card">
               <div className="status-top">
                 <span className="pulse-dot" />
-                <span className="status-text">India Studio · Global Delivery</span>
+                <span className="status-text">Lucknow Studio · India &amp; Dubai Partners</span>
               </div>
               <p className="status-desc">
-                Headquartered in India, serving ambitious brands across Mumbai, Bengaluru, Delhi NCR, Dubai, London, and San Francisco. Initial consultations hosted via Google Meet or Zoom.
+                Headquartered in Lucknow, with strategic partners across India and Dubai, serving ambitious brands worldwide. Initial consultations hosted via Google Meet or Zoom.
               </p>
             </div>
           </div>

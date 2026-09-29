@@ -58,7 +58,7 @@ export default function About() {
             <div className="studio-banner-overlay" />
             <div className="studio-banner-meta">
               <span className="banner-tag">ATELIER & CRAFT</span>
-              <span className="banner-location">MUMBAI &bull; GLOBAL COMMISSIONS</span>
+              <span className="banner-location">LUCKNOW &bull; INDIA &amp; DUBAI PARTNERS</span>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function About() {
             <span className="spec-tag">[02 // REACH]</span>
             <h3 className="spec-heading">Global Footprint</h3>
             <p className="spec-body">
-              Based in Mumbai, partnering directly with ambitious founders across North America, Europe, and Asia in luxury, direct-to-consumer, and culture.
+              Based in Lucknow, with strategic partners across India and Dubai, partnering directly with ambitious founders globally in luxury, direct-to-consumer, and culture.
             </p>
           </div>
 
