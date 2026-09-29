@@ -5,8 +5,9 @@ export const portfolioProjects = [
     subtitle: 'Brand Identity & Editorial System',
     category: 'Brand Identity',
     year: '2025',
-    image: '/assets/portfolio/work_09.jpg',
+    image: '/assets/the-hooper.jpg',
     gallery: [
+      '/assets/the-hooper.jpg',
       '/assets/portfolio/work_09.jpg',
       '/assets/portfolio/work_13.jpg',
       '/assets/portfolio/work_20_Kirby_s0_jpg.jpg'
@@ -14,13 +15,110 @@ export const portfolioProjects = [
     accentColor: '#ECC876',
     client: 'The Hooper Fashion & Lifestyle Group',
     deliverables: ['Visual Identity', 'Typography System', 'Packaging Guidelines', 'Editorial Publication'],
-    summary: 'Crafting a warm, tactile, and discerning visual identity system for an artisan gourmet deli & lifestyle establishment.',
-    challenge: 'The brand needed to transition from an emerging boutique into a recognized culinary & lifestyle authority without losing its handcrafted warmth and artisanal intimacy.',
-    solution: 'We engineered an editorial typographic identity built around bespoke script contrast, warm amber gold palette, and tactile packaging that commands attention on retail shelves and unboxing reels.',
+    summary: 'Crafting a warm, tactile, and discerning visual identity system for an international fashion & lifestyle label.',
+    challenge: 'The brand needed to transition from an emerging boutique into a global luxury lifestyle authority without losing its handcrafted warmth and artisanal intimacy.',
+    solution: 'We engineered an editorial typographic identity built around bespoke serif contrast, blind-embossed paper tactility, and earth-toned packaging that commands attention on retail shelves and unboxing reels.',
     stats: [
       { label: 'Revenue Growth', value: '+142%' },
       { label: 'Social Engagement', value: '3.8x' },
       { label: 'Retail Stockists', value: '18+' }
+    ]
+  },
+  {
+    id: 'flora-botanica',
+    title: 'Flora Botanica',
+    subtitle: 'Organic Botanical Elixirs & Packaging',
+    category: 'Packaging Design',
+    year: '2025',
+    image: '/assets/flora-botanica.jpg',
+    gallery: [
+      '/assets/flora-botanica.jpg',
+      '/assets/portfolio/work_15.jpg',
+      '/assets/portfolio/work_18_Edible_Art_Bakery_jpg.jpg'
+    ],
+    accentColor: '#D4A373',
+    client: 'Flora Botanica Wellness Labs',
+    deliverables: ['Custom Bottle & Can Packaging', '3D Photorealistic Mockups', 'Label System', 'E-commerce Creative'],
+    summary: 'A minimalist, sunlight-infused packaging and brand ecosystem for cold-extracted botanical adaptogens.',
+    challenge: 'Standing out in a saturated wellness beverage market where most brands rely on chaotic neon colors or generic medical aesthetics.',
+    solution: 'We designed a serene, amber-glass and matte-beige packaging system that celebrates raw herbal purity and sits as a decorative art piece on kitchen counters.',
+    stats: [
+      { label: 'Direct-to-Consumer ROI', value: '4.2x' },
+      { label: 'Sellout Time', value: '72 hrs' },
+      { label: 'Packaging Award', value: 'Gold' }
+    ]
+  },
+  {
+    id: 'velocity-motion',
+    title: 'Velocity Motion',
+    subtitle: 'Cinematic 3D Reels & AI Video Ads',
+    category: 'Motion & AI Video',
+    year: '2026',
+    image: '/assets/velocity-motion.jpg',
+    videoUrl: 'https://youtu.be/ceRtL4mu9rI',
+    youtubeId: 'ceRtL4mu9rI',
+    gallery: [
+      '/assets/velocity-motion.jpg',
+      '/assets/portfolio/work_02.jpg'
+    ],
+    accentColor: '#E5C07B',
+    client: 'Velocity Automotive & Luxury Performance',
+    deliverables: ['3D Liquid Gold Visuals', 'AI Video Ad Reels', 'Audio Soundscape', 'Launch Teaser Campaign'],
+    summary: 'Hypnotic fluid chrome and gold motion assets engineered for maximum thumb-stopping social performance.',
+    challenge: 'Capturing the sensory rush of ultra-luxury performance engineering in 15-second social reels with high CTR.',
+    solution: 'Using procedural 3D fluid simulations paired with AI-enhanced macro textures and custom cinematic sound design, we crafted a high-converting teaser series.',
+    stats: [
+      { label: 'Organic Views', value: '2.4M+' },
+      { label: 'Ad Click-Through Rate', value: '5.1%' },
+      { label: 'Conversion Lift', value: '+88%' }
+    ]
+  },
+  {
+    id: 'aurelius-digital',
+    title: 'Aurelius Architecture',
+    subtitle: 'Immersive Digital Platform & Web App',
+    category: 'Website & Digital',
+    year: '2025',
+    image: '/assets/aurelius-digital.jpg',
+    gallery: [
+      '/assets/aurelius-digital.jpg',
+      '/assets/portfolio/work_06.jpg',
+      '/assets/portfolio/work_12.jpg'
+    ],
+    accentColor: '#C4A480',
+    client: 'Aurelius Studio & Living',
+    deliverables: ['UI/UX Experience Design', 'Next.js / React Architecture', 'Interactive 3D Walkthroughs', 'CMS Integration'],
+    summary: 'A fast, tactile web platform showcasing brutalist architectural masterpieces and private residences.',
+    challenge: 'Designing an interactive web experience that communicates spatial grandeur and high-end materials while maintaining instant 100/100 Lighthouse performance.',
+    solution: 'We created an editorial dark-mode interface with smooth scroll choreography, high-resolution responsive imagery, and an intuitive private client inquiry portal.',
+    stats: [
+      { label: 'Avg Session Duration', value: '4m 12s' },
+      { label: 'Inquiry Conversion', value: '+210%' },
+      { label: 'Lighthouse Performance', value: '99/100' }
+    ]
+  },
+  {
+    id: 'untitled-monograph',
+    title: 'Untitled Monograph',
+    subtitle: 'Editorial Lookbook & Print Architecture',
+    category: 'Brand Identity',
+    year: '2026',
+    image: '/assets/editorial-campaign.jpg',
+    gallery: [
+      '/assets/editorial-campaign.jpg',
+      '/assets/portfolio/work_03.jpg',
+      '/assets/portfolio/work_14.jpg'
+    ],
+    accentColor: '#D8C7B5',
+    client: 'Maison Noir AW Collection',
+    deliverables: ['Editorial Publication', 'Swiss Typography', 'Custom Paper Finishing', 'Campaign Lookbook'],
+    summary: 'A stark, architectural print monograph and campaign lookbook for an international minimalist atelier.',
+    challenge: 'Translating high-concept architectural fashion garments into a tactile editorial publication that feels collectible.',
+    solution: 'We developed a stark typographic hierarchy on uncoated 180gsm stock with Japanese binding and serene dual-page photography spreads.',
+    stats: [
+      { label: 'Press Features', value: '34' },
+      { label: 'Stockist Pre-Orders', value: '+165%' },
+      { label: 'Design Index Award', value: 'Nominee' }
     ]
   },
   {
@@ -168,7 +266,7 @@ export const portfolioProjects = [
     id: 'kirbys-brunch',
     title: "Kirby's Brunch & Beverages",
     subtitle: 'Playful Character Mascot & Casual Dining',
-    category: 'Brand Identity',
+    category: 'Food & Hospitality',
     year: '2025',
     image: '/assets/portfolio/work_20_Kirby_s0_jpg.jpg',
     gallery: [
@@ -184,31 +282,6 @@ export const portfolioProjects = [
       { label: 'Opening Day Footfall', value: '1,400+' },
       { label: 'Social Follower Surge', value: '+45K' },
       { label: 'Merchandise Sellout', value: '48 Hrs' }
-    ]
-  },
-  {
-    id: 'velocity-motion',
-    title: 'Velocity Motion',
-    subtitle: 'Cinematic 3D Reels & AI Video Ads',
-    category: 'Motion & AI Video',
-    year: '2026',
-    image: '/assets/velocity-motion.jpg',
-    videoUrl: 'https://youtu.be/ceRtL4mu9rI',
-    youtubeId: 'ceRtL4mu9rI',
-    gallery: [
-      '/assets/velocity-motion.jpg',
-      '/assets/portfolio/work_02.jpg'
-    ],
-    accentColor: '#E5C07B',
-    client: 'Velocity Automotive & Luxury Performance',
-    deliverables: ['3D Liquid Gold Visuals', 'AI Video Ad Reels', 'Audio Soundscape', 'Launch Teaser Campaign'],
-    summary: 'Hypnotic fluid chrome and gold motion assets engineered for maximum thumb-stopping social performance.',
-    challenge: 'Capturing the sensory rush of ultra-luxury performance engineering in 15-second social reels with high CTR.',
-    solution: 'Using procedural 3D fluid simulations paired with AI-enhanced macro textures and custom cinematic sound design, we crafted a high-converting teaser series.',
-    stats: [
-      { label: 'Organic Views', value: '2.4M+' },
-      { label: 'Ad Click-Through Rate', value: '5.1%' },
-      { label: 'Conversion Lift', value: '+88%' }
     ]
   },
   {
@@ -323,11 +396,66 @@ export const portfolioProjects = [
   }
 ];
 
-// Complete visual catalog of all 20 extracted images
+// Complete visual catalog of all 25 commissions & artworks (Zoominn Designs works + previous signature works)
 export const portfolioArchive = [
   {
-    id: 'archive-01',
+    id: 'archive-hooper-campaign',
     num: '01',
+    title: 'The Hooper Luxury Editorial Monograph',
+    client: 'The Hooper Fashion Group',
+    category: 'Brand Identity',
+    image: '/assets/the-hooper.jpg',
+    aspect: 'landscape',
+    year: '2025',
+    description: 'Bespoke high-contrast serif typography and warm editorial leather aesthetic.'
+  },
+  {
+    id: 'archive-flora-botanica',
+    num: '02',
+    title: 'Flora Botanica Elixir Packaging Suite',
+    client: 'Flora Botanica Wellness Labs',
+    category: 'Packaging Design',
+    image: '/assets/flora-botanica.jpg',
+    aspect: 'landscape',
+    year: '2025',
+    description: 'Amber glass bottle and matte beige packaging system celebrating botanical purity.'
+  },
+  {
+    id: 'archive-aurelius-digital',
+    num: '03',
+    title: 'Aurelius Architectural Flagship Platform',
+    client: 'Aurelius Studio & Living',
+    category: 'Website & Digital',
+    image: '/assets/aurelius-digital.jpg',
+    aspect: 'landscape',
+    year: '2025',
+    description: 'Tactile editorial dark-mode digital platform with 3D spatial walkthroughs.'
+  },
+  {
+    id: 'archive-editorial-monograph',
+    num: '04',
+    title: 'Maison Noir Architectural Monograph',
+    client: 'Maison Noir Atelier',
+    category: 'Brand Identity',
+    image: '/assets/editorial-campaign.jpg',
+    aspect: 'landscape',
+    year: '2026',
+    description: 'Swiss typography on uncoated 180gsm stock with Japanese binding.'
+  },
+  {
+    id: 'archive-velocity-motion',
+    num: '05',
+    title: 'Velocity Motion Kinetic 3D Chrome Simulation',
+    client: 'Velocity Automotive',
+    category: 'Motion & AI Video',
+    image: '/assets/velocity-motion.jpg',
+    aspect: 'landscape',
+    year: '2026',
+    description: 'Procedural 3D liquid gold motion simulation with cinematic sound design.'
+  },
+  {
+    id: 'archive-swabhiman',
+    num: '06',
     title: 'Swabhiman Jewellers Royal Crest',
     client: 'Swabhiman Jewellers',
     category: 'Brand Identity',
@@ -337,8 +465,8 @@ export const portfolioArchive = [
     description: 'Bespoke golden fleur crest & symmetrical royal monogram on crimson silk.'
   },
   {
-    id: 'archive-02',
-    num: '02',
+    id: 'archive-rainbow',
+    num: '07',
     title: 'Rainbow Production Media Identity',
     client: 'Rainbow Production',
     category: 'Brand Identity',
@@ -348,8 +476,8 @@ export const portfolioArchive = [
     description: 'Multi-color rounded spectrum bars on warm artisanal kraft paper.'
   },
   {
-    id: 'archive-03',
-    num: '03',
+    id: 'archive-prakriti-logo',
+    num: '08',
     title: 'Prakriti Botanical Identity',
     client: 'Prakriti Cotton Clothing',
     category: 'Brand Identity',
@@ -359,8 +487,8 @@ export const portfolioArchive = [
     description: 'Delicate leaf silhouettes and spacious modern serif typography in rich magenta.'
   },
   {
-    id: 'archive-04',
-    num: '04',
+    id: 'archive-prakriti-store',
+    num: '09',
     title: 'Prakriti In-Store Handloom Collection',
     client: 'Prakriti Cotton Clothing',
     category: 'Spatial & Retail',
@@ -370,8 +498,8 @@ export const portfolioArchive = [
     description: 'Boutique garment display and artisanal timber rack presentation.'
   },
   {
-    id: 'archive-05',
-    num: '05',
+    id: 'archive-royal-logo',
+    num: '10',
     title: 'Royal Light Obsidian Monogram',
     client: 'Royal Light Systems',
     category: 'Brand Identity',
@@ -381,8 +509,8 @@ export const portfolioArchive = [
     description: 'Interlocking geometric circular motif in brushed gold on deep obsidian black.'
   },
   {
-    id: 'archive-06',
-    num: '06',
+    id: 'archive-royal-interior',
+    num: '11',
     title: 'Royal Light Living Space Installation',
     client: 'Royal Light Systems',
     category: 'Spatial & Architectural',
@@ -392,8 +520,8 @@ export const portfolioArchive = [
     description: 'Luxury architectural lighting design with custom downlighters and wall panels.'
   },
   {
-    id: 'archive-07',
-    num: '07',
+    id: 'archive-royal-pattern-dark',
+    num: '12',
     title: 'Royal Light Brand Pattern (Dark)',
     client: 'Royal Light Systems',
     category: 'Brand Identity',
@@ -403,8 +531,8 @@ export const portfolioArchive = [
     description: 'Symmetrical interlocking ring pattern in contrasting gold and black lacquer.'
   },
   {
-    id: 'archive-08',
-    num: '08',
+    id: 'archive-royal-pattern-ivory',
+    num: '13',
     title: 'Royal Light Brand Pattern (Ivory)',
     client: 'Royal Light Systems',
     category: 'Brand Identity',
@@ -414,9 +542,9 @@ export const portfolioArchive = [
     description: 'Clean ivory white edition with gold lattice motif for editorial stationery.'
   },
   {
-    id: 'archive-09',
-    num: '09',
-    title: 'The Hooper Handcrafted Emblem',
+    id: 'archive-hooper-logo',
+    num: '14',
+    title: 'The Hooper Handcrafted Deli Emblem',
     client: 'The Hooper',
     category: 'Brand Identity',
     image: '/assets/portfolio/work_09.jpg',
@@ -425,8 +553,8 @@ export const portfolioArchive = [
     description: 'Artisan gourmet sandwich illustration with flowing custom script typography.'
   },
   {
-    id: 'archive-10',
-    num: '10',
+    id: 'archive-pets-home',
+    num: '15',
     title: "Pet's Home Clinic Mascot",
     client: "Pet's Home",
     category: 'Brand Identity',
@@ -436,8 +564,8 @@ export const portfolioArchive = [
     description: 'Illustrated cat mascot over warm low-poly geometric background.'
   },
   {
-    id: 'archive-11',
-    num: '11',
+    id: 'archive-green-leaf-monogram',
+    num: '16',
     title: 'Green Leaf Estate Monogram',
     client: 'Green Leaf Estate',
     category: 'Brand Identity',
@@ -447,8 +575,8 @@ export const portfolioArchive = [
     description: 'Faceted emerald trinity leaf monogram on cool mineral gray.'
   },
   {
-    id: 'archive-12',
-    num: '12',
+    id: 'archive-green-leaf-monolith',
+    num: '17',
     title: 'Green Leaf Monolith Signage',
     client: 'Green Leaf Estate',
     category: 'Spatial & Architectural',
@@ -458,8 +586,8 @@ export const portfolioArchive = [
     description: 'Outdoor architectural monolith wayfinding marker in landscaped park grounds.'
   },
   {
-    id: 'archive-13',
-    num: '13',
+    id: 'archive-cupcakes-cafe',
+    num: '18',
     title: 'Cupcakes Cafe Ambient Badge',
     client: 'Cupcakes Cafe',
     category: 'Food & Hospitality',
@@ -469,8 +597,8 @@ export const portfolioArchive = [
     description: 'Gold illuminated medallion logo with coffee beans in cozy ambient cafe.'
   },
   {
-    id: 'archive-14',
-    num: '14',
+    id: 'archive-parashree',
+    num: '19',
     title: 'Parashree Damask Crest',
     client: 'Parashree Heritage',
     category: 'Brand Identity',
@@ -480,8 +608,8 @@ export const portfolioArchive = [
     description: 'Silver-white infinity knot emblem on deeply embossed black damask texture.'
   },
   {
-    id: 'archive-15',
-    num: '15',
+    id: 'archive-cocoa-carrier',
+    num: '20',
     title: 'Cocoa Dual Drink Carrier',
     client: 'Cocoa Artisanal Roasters',
     category: 'Packaging Design',
@@ -491,8 +619,8 @@ export const portfolioArchive = [
     description: 'Ergonomic takeaway drink carrier with gold-embossed typography.'
   },
   {
-    id: 'archive-16',
-    num: '16',
+    id: 'archive-cocoa-emblem',
+    num: '21',
     title: 'Cocoa Roasted Powder Emblem',
     client: 'Cocoa Artisanal Roasters',
     category: 'Packaging Design',
@@ -502,8 +630,8 @@ export const portfolioArchive = [
     description: 'Metallic gold wordmark over antique scoop of ground cocoa beans.'
   },
   {
-    id: 'archive-17',
-    num: '17',
+    id: 'archive-cocoa-espresso',
+    num: '22',
     title: 'Cocoa Steaming Espresso Shot',
     client: 'Cocoa Artisanal Roasters',
     category: 'Food & Hospitality',
@@ -513,8 +641,8 @@ export const portfolioArchive = [
     description: 'Fresh steaming espresso cup resting on burlap sack with roasted Arabica beans.'
   },
   {
-    id: 'archive-18',
-    num: '18',
+    id: 'archive-edible-art',
+    num: '23',
     title: 'Edible Art Bakery Medallion',
     client: 'Edible Art Bakery',
     category: 'Packaging Design',
@@ -524,8 +652,8 @@ export const portfolioArchive = [
     description: 'Vintage scalloped cupcake medallion with purple cursive typography.'
   },
   {
-    id: 'archive-19',
-    num: '19',
+    id: 'archive-gyanaarth',
+    num: '24',
     title: 'Gyanaarth Foundation Extended Hands',
     client: 'Gyanaarth Foundation',
     category: 'Brand Identity',
@@ -535,11 +663,11 @@ export const portfolioArchive = [
     description: 'Rising colorful hands reaching toward a warm golden sun on textured parchment.'
   },
   {
-    id: 'archive-20',
-    num: '20',
+    id: 'archive-kirbys',
+    num: '25',
     title: "Kirby's Brunch Mascot & Pattern",
     client: "Kirby's Brunch & Beverages",
-    category: 'Brand Identity',
+    category: 'Food & Hospitality',
     image: '/assets/portfolio/work_20_Kirby_s0_jpg.jpg',
     aspect: 'landscape',
     year: '2025',
@@ -553,24 +681,24 @@ export const studioCapabilities = [
     num: '01',
     title: 'Brand Identity',
     description: 'Bespoke typographic systems and tactile visual guidelines built to endure.',
-    image: '/assets/portfolio/work_01.jpg', // Swabhiman Jewellers
+    image: '/assets/the-hooper.jpg',
     tags: ['Identity Systems', 'Typography', 'Art Direction']
   },
   {
     id: 'packaging',
     num: '02',
-    title: 'Packaging & Products',
+    title: 'Packaging Design',
     description: 'Tactile physical materials and unboxing architecture paired with 3D CGI.',
-    image: '/assets/portfolio/work_15.jpg', // Cocoa Carrier
+    image: '/assets/flora-botanica.jpg',
     tags: ['Structural Design', 'Luxury Print', 'Unboxing Systems']
   },
   {
-    id: 'spatial',
+    id: 'web-dev',
     num: '03',
-    title: 'Spatial & Environmental',
-    description: 'Monolith signage, architectural lighting, and immersive retail experiences.',
-    image: '/assets/portfolio/work_12.jpg', // Green Leaf Estate Signage
-    tags: ['Monolith Signage', 'Lighting Design', 'Retail Spaces']
+    title: 'Digital Flagships & Web',
+    description: 'Editorial web platforms engineered with fluid interactions and instant speed.',
+    image: '/assets/aurelius-digital.jpg',
+    tags: ['Creative Web', 'React / Next.js', 'Smooth UI/UX']
   },
   {
     id: 'motion-ai',
@@ -584,18 +712,18 @@ export const studioCapabilities = [
   {
     id: 'editorial',
     num: '05',
-    title: 'Editorial & Textile Design',
-    description: 'High-impact botanical patterns, Swiss typography, and artisan garments.',
-    image: '/assets/portfolio/work_03.jpg', // Prakriti Cotton
-    tags: ['Lookbooks', 'Textile Patterns', 'Print Collateral']
+    title: 'Editorial & Monograph',
+    description: 'High-impact Swiss typography, investor keynotes, and physical lookbooks.',
+    image: '/assets/editorial-campaign.jpg',
+    tags: ['Lookbooks', 'Swiss Type', 'Print Collateral']
   },
   {
-    id: 'hospitality',
+    id: 'spatial',
     num: '06',
-    title: 'Hospitality & Dining',
-    description: 'Character mascots, warm cafe atmospheres, and viral culinary identities.',
-    image: '/assets/portfolio/work_20_Kirby_s0_jpg.jpg', // Kirby's Brunch
-    tags: ['Cafe Branding', 'Mascot Design', 'Packaging']
+    title: 'Spatial & Brand Architecture',
+    description: 'Monolith signage, architectural installations, and cohesive physical environments.',
+    image: '/assets/portfolio/work_12.jpg',
+    tags: ['Monolith Signage', 'Lighting Design', 'Brand Systems']
   }
 ];
 

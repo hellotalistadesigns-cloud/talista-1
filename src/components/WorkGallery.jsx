@@ -9,7 +9,7 @@ export default function WorkGallery({ onSelectProject }) {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [lightboxItem, setLightboxItem] = useState(null);
 
-  const categories = ['All', 'Brand Identity', 'Packaging Design', 'Spatial & Architectural', 'Food & Hospitality', 'Motion & AI Video'];
+  const categories = ['All', 'Brand Identity', 'Packaging Design', 'Website & Digital', 'Motion & AI Video', 'Spatial & Architectural', 'Food & Hospitality'];
 
   const filteredProjects = activeFilter === 'All'
     ? portfolioProjects
@@ -20,6 +20,7 @@ export default function WorkGallery({ onSelectProject }) {
     : portfolioArchive.filter(item => {
         if (activeFilter === 'Brand Identity') return item.category.includes('Brand');
         if (activeFilter === 'Packaging Design') return item.category.includes('Packaging');
+        if (activeFilter === 'Website & Digital') return item.category.includes('Website') || item.category.includes('Digital');
         if (activeFilter === 'Spatial & Architectural') return item.category.includes('Spatial') || item.category.includes('Architectural') || item.category.includes('Retail');
         if (activeFilter === 'Food & Hospitality') return item.category.includes('Food') || item.category.includes('Hospitality');
         if (activeFilter === 'Motion & AI Video') return item.category.includes('Motion');
