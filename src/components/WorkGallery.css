@@ -906,16 +906,26 @@
   .apple-work-header {
     margin-bottom: 34px;
   }
+  .work-controls-row {
+    margin-bottom: 40px;
+    gap: 16px;
+  }
+  .view-mode-toggle {
+    max-width: 100%;
+  }
   .apple-segmented-tabs {
     max-width: 100%;
     width: fit-content;
     padding: 6px 12px;
-    margin-bottom: 38px;
     -webkit-overflow-scrolling: touch;
   }
   .apple-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
+  }
+  .visual-archive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   .card-info-box {
     padding: 22px 20px;
@@ -931,19 +941,42 @@
 
 @media (max-width: 720px) {
   .apple-work-header {
+    margin-bottom: 24px;
+  }
+  .work-controls-row {
+    width: 100%;
     margin-bottom: 28px;
+    gap: 14px;
+  }
+  .view-mode-toggle {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 3px;
+  }
+  .mode-btn {
+    padding: 8px 8px;
+    font-size: 0.74rem;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
   }
   .apple-segmented-tabs {
     width: 100%;
     max-width: 100%;
     justify-content: flex-start;
-    padding: 6px;
-    margin-bottom: 32px;
+    padding: 5px;
+    margin-bottom: 8px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
   .apple-segmented-tabs::-webkit-scrollbar {
     display: none;
+  }
+  .apple-tab {
+    padding: 6px 14px;
+    font-size: 0.78rem;
   }
   .apple-cards-grid {
     grid-template-columns: 1fr;
@@ -954,5 +987,60 @@
   }
   .card-main-title {
     font-size: 1.35rem;
+  }
+
+  /* Visual Archive Phone Layout */
+  .archive-badge-banner {
+    font-size: 0.76rem;
+    padding: 6px 14px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .visual-archive-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .archive-card-caption {
+    padding: 14px 16px 18px;
+  }
+
+  /* Lightbox Phone Layout */
+  .lightbox-modal {
+    width: 95vw !important;
+    max-height: 92vh !important;
+    padding: 16px !important;
+  }
+  .lightbox-image-stage {
+    max-height: 48vh;
+  }
+  .lightbox-details-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .lightbox-title {
+    font-size: 1.15rem;
+  }
+  .lightbox-desc {
+    font-size: 0.82rem;
+  }
+  .lightbox-actions {
+    width: 100%;
+  }
+  .lightbox-btn-full {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .view-mode-toggle {
+    grid-template-columns: 1fr;
+  }
+  .mode-btn {
+    padding: 7px 10px;
+    font-size: 0.76rem;
   }
 }

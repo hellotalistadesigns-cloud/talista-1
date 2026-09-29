@@ -516,6 +516,16 @@
     bottom: 14px;
     gap: 8px;
   }
+  .modal-gallery-strip {
+    padding: 12px 18px;
+  }
+  .modal-gallery-thumbs {
+    gap: 8px;
+  }
+  .gallery-thumb-btn {
+    width: 60px;
+    height: 44px;
+  }
   .apple-modal-stats {
     grid-template-columns: 1fr;
     gap: 10px;
