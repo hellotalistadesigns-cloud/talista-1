@@ -30,7 +30,7 @@ export default function Hero({ onOpenPlanner, onSelectProject }) {
 
         {/* Minimal Studio Tag */}
         <div className="clean-hero-eyebrow hero-anim-1">
-          <span>TALISTA STUDIOS — CREATIVE PRACTICE</span>
+          <span>TALISTA STUDIOS</span>
         </div>
 
         {/* Iconic Masked Headline */}
@@ -51,8 +51,8 @@ export default function Hero({ onOpenPlanner, onSelectProject }) {
             Brand identity, cinematic 3D motion, and custom digital flagships.
           </p>
 
-          <button 
-            onClick={onOpenPlanner} 
+          <button
+            onClick={onOpenPlanner}
             className="btn-studio-commission btn-roll"
           >
             <span className="roll-wrap">
@@ -64,7 +64,7 @@ export default function Hero({ onOpenPlanner, onSelectProject }) {
         </div>
 
         {/* Pure Cinematic Showcase with 3D Physics */}
-        <div 
+        <div
           ref={frameRef}
           className="clean-showcase-frame hero-anim-4 sheen-card"
           onMouseMove={handleMouseMove}
