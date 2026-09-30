@@ -17,7 +17,6 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  will-change: transform;
 }
 
 .marquee-group {
@@ -25,7 +24,6 @@
   align-items: center;
   flex-shrink: 0;
   animation: marqueeScroll 28s linear infinite;
-  will-change: transform;
 }
 
 .agency-marquee-section:hover .marquee-group {

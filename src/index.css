@@ -131,7 +131,6 @@ body {
   pointer-events: none;
   z-index: 0;
   contain: layout paint;
-  will-change: transform;
 }
 
 .layout-wrap {
@@ -430,6 +429,7 @@ select option {
 .reveal.revealed {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+  will-change: auto;
 }
 
 /* Masked Title Animation: Slides out from behind a pristine mask */
@@ -453,6 +453,7 @@ select option {
 .mask-inner.revealed {
   transform: translate3d(0, 0, 0) rotate(0deg);
   opacity: 1;
+  will-change: auto;
 }
 
 /* Image Frame Containers */
@@ -468,7 +469,6 @@ select option {
   object-fit: cover;
   display: block;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 /* ============================================================
@@ -515,10 +515,25 @@ select option {
 .revealed .card-reveal {
   opacity: 1;
   transform: perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
+  will-change: auto;
 }
 
-/* Tablet & Mobile touch animation enhancements */
+/* Tablet & Mobile touch animation enhancements (Zero WebKit VRAM overflow) */
 @media (max-width: 1024px) {
+  .reveal,
+  .mask-inner,
+  .card-reveal,
+  .apple-cards-grid > .card-reveal:nth-child(odd),
+  .apple-cards-grid > .card-reveal:nth-child(even),
+  .disciplines-grid > .card-reveal:nth-child(3n+1),
+  .disciplines-grid > .card-reveal:nth-child(3n+2),
+  .disciplines-grid > .card-reveal:nth-child(3n+3),
+  .about-spec-grid > .card-reveal:nth-child(3n+1),
+  .about-spec-grid > .card-reveal:nth-child(3n+2),
+  .about-spec-grid > .card-reveal:nth-child(3n+3) {
+    will-change: auto !important;
+  }
+
   .card-reveal,
   .apple-cards-grid > .card-reveal:nth-child(odd),
   .apple-cards-grid > .card-reveal:nth-child(even),
@@ -529,23 +544,25 @@ select option {
   .about-spec-grid > .card-reveal:nth-child(3n+2),
   .about-spec-grid > .card-reveal:nth-child(3n+3) {
     opacity: 0;
-    transform: translate3d(0, 50px, 0) scale(0.95);
-    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease-out,
+                transform 0.5s ease-out !important;
   }
 
   .card-reveal.revealed,
   .revealed.card-reveal,
   .revealed .card-reveal {
     opacity: 1 !important;
-    transform: translate3d(0, 0, 0) scale(1) !important;
+    transform: translateY(0) !important;
+    will-change: auto;
   }
 
-  /* Automatic ambient sheen sweep across cards on mobile */
+  /* Disable continuous sheen animation on mobile to save GPU cycles and prevent iOS crash */
   .card-reveal.revealed.sheen-card::after,
   .revealed .card-reveal.sheen-card::after,
   .about-studio-banner.sheen-card::after {
-    animation: mobileSheenGlide 6s ease-in-out infinite;
+    display: none !important;
+    animation: none !important;
   }
 
   /* Tactile touch response on phone */
@@ -639,7 +656,6 @@ select option {
 .roll-text {
   display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 .roll-text.clone {
@@ -659,3 +675,13 @@ select option {
 .reveal-delay-3 { transition-delay: 0.24s; }
 .reveal-delay-4 { transition-delay: 0.32s; }
 .reveal-delay-5 { transition-delay: 0.40s; }
+
+/* Production Performance: Skip off-screen rendering until approached */
+.apple-work-section,
+.capabilities-section,
+.about-section,
+.agency-planner-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+

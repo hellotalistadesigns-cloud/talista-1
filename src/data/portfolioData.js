@@ -374,24 +374,49 @@ export const portfolioProjects = [
   },
   {
     id: 'cupcakes-cafe',
-    title: 'Cupcakes Cafe & Bakery',
-    subtitle: 'Artisan Coffee Shop & Warm Atmosphere',
+    title: 'Cupcakes Café',
+    subtitle: 'The Home of Happiness – Complete Brand & Packaging Experience',
     category: 'Food & Hospitality',
     year: '2025',
-    image: '/assets/portfolio/work_13.jpg',
+    image: '/assets/portfolio/cupcake-cafe-01.jpg',
     gallery: [
-      '/assets/portfolio/work_13.jpg'
+      '/assets/portfolio/cupcake-cafe-01.jpg',
+      '/assets/portfolio/cupcake-cafe-02.jpg',
+      '/assets/portfolio/cupcake-cafe-03.jpg',
+      '/assets/portfolio/cupcake-cafe-04.jpg'
     ],
-    accentColor: '#8D5B4C',
-    client: 'Cupcakes Cafe Group',
-    deliverables: ['Golden Script Badge', 'Roasted Bean Emblem', 'Storefront Lighting & Atmosphere', 'Takeaway Cups'],
-    summary: 'An inviting cafe and bakery concept wrapped in deep coffee tones, golden metallic script, and ambient warm lighting.',
-    challenge: 'Crafting a cozy third-space atmosphere that turns casual coffee drinkers into loyal daily regulars.',
-    solution: 'We designed an illuminated circular emblem with roasted bean texture, paired with rich ambient timber store design and gold typography.',
+    accentColor: '#9E6B4A',
+    client: 'Cupcakes Café (The Home of Happiness)',
+    deliverables: ['Ambient In-Store Signage', 'Pastry & Cupcake Branding', 'Bottled Happiness Beverage Line', 'Takeaway Cups & Packaging Suite'],
+    summary: 'A holistic, sensory cafe branding experience spanning warm in-store ambient signage, chocolate-stamped cupcakes, bottled iced beverages, and bespoke takeaway packaging.',
+    challenge: 'Creating a deeply inviting, cohesive brand ecosystem that transforms a boutique pastry shop into an iconic, memorable community landmark.',
+    solution: 'Talista Studio crafted an elegant circular badge monogram with fluid typography, paired with earth-toned kraft packaging, custom embossed chocolate discs, and minimalist glass bottle label systems.',
     stats: [
-      { label: 'Daily Coffee Volume', value: '850+ Cups' },
-      { label: 'Average Ticket Size', value: '+35%' },
-      { label: 'Google Review Score', value: '4.8 ★' }
+      { label: 'Social Engagement', value: '4.8x' },
+      { label: 'Beverage Sales', value: '+185%' },
+      { label: 'Customer Retention', value: '78%' }
+    ]
+  },
+  {
+    id: 'happy-dog-pet-food',
+    title: 'Happy Dog Nutrition',
+    subtitle: 'Natural Pet Food Packaging & Campaign Suite',
+    category: 'Packaging Design',
+    year: '2026',
+    image: '/assets/portfolio/pet-food-packaging.jpg',
+    gallery: [
+      '/assets/portfolio/pet-food-packaging.jpg'
+    ],
+    accentColor: '#EAA43A',
+    client: 'Happy Dog Complete & Balanced Nutrition',
+    deliverables: ['1.2kg Kibble Pouch Packaging', 'Nutritional Benefit Icons', 'Illustrated Dog Mascot', 'Campaign Photography & Ad Visuals'],
+    summary: 'A sun-drenched, joyful packaging identity and visual campaign for premium canine nutrition formulated with natural ingredients for strong immunity and digestion.',
+    challenge: 'Positioning a high-grade wholesome pet nutrition product in a market dominated by sterile medical or cluttered commercial pet food brands.',
+    solution: 'We created a bright warm-yellow packaging pouch featuring a cheerful hand-drawn golden retriever illustration, crisp benefit badge iconography, and heartwarming lifestyle imagery.',
+    stats: [
+      { label: 'Retail Placement', value: '85+ Stores' },
+      { label: 'Ad CTR Lift', value: '+62%' },
+      { label: 'Customer Trust Rating', value: '4.9/5' }
     ]
   }
 ];
@@ -586,19 +611,63 @@ export const portfolioArchive = [
     description: 'Outdoor architectural monolith wayfinding marker in landscaped park grounds.'
   },
   {
-    id: 'archive-cupcakes-cafe',
+    id: 'archive-cupcakes-cafe-signage',
     num: '18',
-    title: 'Cupcakes Cafe Ambient Badge',
-    client: 'Cupcakes Cafe',
+    title: 'Cupcakes Café In-Store Signage',
+    client: 'Cupcakes Café',
     category: 'Food & Hospitality',
-    image: '/assets/portfolio/work_13.jpg',
+    image: '/assets/portfolio/cupcake-cafe-01.jpg',
     aspect: 'landscape',
     year: '2025',
-    description: 'Gold illuminated medallion logo with coffee beans in cozy ambient cafe.'
+    description: 'Warm ambient brass and timber illuminated wall medallion with Home of Happiness slogan.'
+  },
+  {
+    id: 'archive-cupcakes-cafe-cupcakes',
+    num: '19',
+    title: 'Cupcakes Café Artisanal Pastries',
+    client: 'Cupcakes Café',
+    category: 'Food & Hospitality',
+    image: '/assets/portfolio/cupcake-cafe-02.jpg',
+    aspect: 'square',
+    year: '2025',
+    description: 'Rich chocolate cupcakes with embossed chocolate logo medallion toppers.'
+  },
+  {
+    id: 'archive-cupcakes-cafe-bottles',
+    num: '20',
+    title: 'Cupcakes Café Bottled Happiness Line',
+    client: 'Cupcakes Café',
+    category: 'Packaging Design',
+    image: '/assets/portfolio/cupcake-cafe-03.jpg',
+    aspect: 'landscape',
+    year: '2025',
+    description: 'Minimalist glass iced latte and cold mocha bottles with gold screw caps and nutrition badges.'
+  },
+  {
+    id: 'archive-cupcakes-cafe-case-study',
+    num: '21',
+    title: 'Cupcakes Café Studio Case Study',
+    client: 'Cupcakes Café by Talista Studio',
+    category: 'Brand Identity',
+    image: '/assets/portfolio/cupcake-cafe-04.jpg',
+    aspect: 'portrait',
+    year: '2025',
+    description: 'Complete multi-touchpoint brand strategy, takeaway packaging, and in-store guidelines.'
+  },
+  {
+    id: 'archive-happy-dog-pet-food',
+    num: '22',
+    title: 'Happy Dog Nutrition Packaging',
+    client: 'Happy Dog Complete Nutrition',
+    category: 'Packaging Design',
+    image: '/assets/portfolio/pet-food-packaging.jpg',
+    aspect: 'portrait',
+    year: '2026',
+    description: 'Sunburst yellow 1.2kg kibble pouch and multi-panel social media campaign for wholesome canine nutrition.'
   },
   {
     id: 'archive-parashree',
-    num: '19',
+    num: '23',
     title: 'Parashree Damask Crest',
     client: 'Parashree Heritage',
     category: 'Brand Identity',
@@ -609,7 +678,7 @@ export const portfolioArchive = [
   },
   {
     id: 'archive-cocoa-carrier',
-    num: '20',
+    num: '24',
     title: 'Cocoa Dual Drink Carrier',
     client: 'Cocoa Artisanal Roasters',
     category: 'Packaging Design',
@@ -620,7 +689,7 @@ export const portfolioArchive = [
   },
   {
     id: 'archive-cocoa-emblem',
-    num: '21',
+    num: '25',
     title: 'Cocoa Roasted Powder Emblem',
     client: 'Cocoa Artisanal Roasters',
     category: 'Packaging Design',
@@ -631,7 +700,7 @@ export const portfolioArchive = [
   },
   {
     id: 'archive-cocoa-espresso',
-    num: '22',
+    num: '26',
     title: 'Cocoa Steaming Espresso Shot',
     client: 'Cocoa Artisanal Roasters',
     category: 'Food & Hospitality',
@@ -642,7 +711,7 @@ export const portfolioArchive = [
   },
   {
     id: 'archive-edible-art',
-    num: '23',
+    num: '27',
     title: 'Edible Art Bakery Medallion',
     client: 'Edible Art Bakery',
     category: 'Packaging Design',
@@ -653,7 +722,7 @@ export const portfolioArchive = [
   },
   {
     id: 'archive-gyanaarth',
-    num: '24',
+    num: '28',
     title: 'Gyanaarth Foundation Extended Hands',
     client: 'Gyanaarth Foundation',
     category: 'Brand Identity',
@@ -664,7 +733,7 @@ export const portfolioArchive = [
   },
   {
     id: 'archive-kirbys',
-    num: '25',
+    num: '29',
     title: "Kirby's Brunch Mascot & Pattern",
     client: "Kirby's Brunch & Beverages",
     category: 'Food & Hospitality',

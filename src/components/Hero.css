@@ -58,7 +58,6 @@
   display: block;
   transform: translate3d(0, 115%, 0) rotate(1.2deg);
   animation: maskSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform;
 }
 
 .mask-delay-1 { animation-delay: 0.08s; }
@@ -126,7 +125,6 @@
   flex-shrink: 0;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 [data-theme="light"] .btn-studio-commission {
@@ -159,7 +157,6 @@
 .roll-text {
   display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 .roll-text.clone {
@@ -195,7 +192,6 @@
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 [data-theme="light"] .clean-showcase-frame {
@@ -218,7 +214,6 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 .clean-showcase-frame:hover .clean-showcase-img {

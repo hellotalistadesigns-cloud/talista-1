@@ -61,7 +61,6 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 .about-studio-banner:hover .studio-banner-img {
@@ -130,7 +129,6 @@
               box-shadow 0.4s ease,
               border-color 0.3s ease,
               background-color 0.3s ease;
-  will-change: transform;
 }
 
 .about-spec-card:hover {

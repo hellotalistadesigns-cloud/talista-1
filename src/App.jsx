@@ -25,27 +25,34 @@ export default function App() {
   // Activate scroll-reveal IntersectionObserver for the whole page
   useScrollReveal();
 
-  // Initialize Lenis smooth inertia scroll
+  // Initialize Lenis smooth inertia scroll for desktop fine-pointers only.
+  // On iOS Safari & touch devices, hijacking native 120Hz ProMotion momentum scroll
+  // causes severe compositor desync, watchdog timeouts, and OOM Jetsam crashes.
   useEffect(() => {
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+    if (isTouch) return;
+
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      syncTouch: false,
     });
 
     lenisRef.current = lenis;
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    const rafId = requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
@@ -141,6 +148,7 @@ export default function App() {
       {/* Case Study Detail Modal */}
       {selectedProject && (
         <CaseStudyModal 
+          key={selectedProject.id}
           project={selectedProject} 
           onClose={() => setSelectedProject(null)}
           onStartProject={handleOpenPlanner}

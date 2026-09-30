@@ -5,17 +5,22 @@ export default function CustomCursor() {
   const [cursorText, setCursorText] = useState('');
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSupported, setIsSupported] = useState(false);
   const cursorRef = useRef(null);
   const posRef = useRef({ x: -100, y: -100 });
   const targetRef = useRef({ x: -100, y: -100 });
 
   useEffect(() => {
     // Only enable on pointer fine devices (desktop/mouse)
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (typeof window === 'undefined' || window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
+    setIsSupported(true);
 
     const onMouseMove = (e) => {
       targetRef.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const onMouseLeave = () => setIsVisible(false);
@@ -67,14 +72,15 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', handleMouseOver);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isVisible]);
+  }, []);
 
-  if (!isVisible) return null;
+  if (!isSupported) return null;
 
   return (
     <div
       ref={cursorRef}
-      className={`luxury-cursor ${isHovered ? 'cursor-hover' : ''} ${cursorText ? 'cursor-has-text' : ''}`}
+      className={`luxury-cursor ${isVisible ? 'cursor-visible' : ''} ${isHovered ? 'cursor-hover' : ''} ${cursorText ? 'cursor-has-text' : ''}`}
+      aria-hidden="true"
     >
       <span className="cursor-label">{cursorText}</span>
     </div>
