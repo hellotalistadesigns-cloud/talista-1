@@ -8,8 +8,9 @@ import {
 } from 'lucide-react';
 import './ProjectPlanner.css';
 
-// Replace with your actual Formspree endpoint
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzrabcd';
+// Web3Forms Access Key (read from .env or fallback)
+const WEB3FORMS_ACCESS_KEY = import.meta.env.WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE';
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 export default function ProjectPlanner() {
   const [selectedServices, setSelectedServices] = useState(['Brand Identity & Logo']);
@@ -37,10 +38,12 @@ export default function ProjectPlanner() {
   ];
 
   const budgetOptions = [
-    { label: '₹1.5L – ₹3L',  value: '₹1,50,000 – ₹3,00,000' },
-    { label: '₹3L – ₹6L',    value: '₹3,00,000 – ₹6,00,000' },
-    { label: '₹6L – ₹15L',   value: '₹6,00,000 – ₹15,00,000' },
-    { label: '₹15L+',        value: '₹15,00,000+' },
+    { label: '< ₹50,000',        value: '< ₹50,000' },
+    { label: '₹50,000 – ₹1.5L',  value: '₹50,000 – ₹1,50,000' },
+    { label: '₹1.5L – ₹3L',      value: '₹1,50,000 – ₹3,00,000' },
+    { label: '₹3L – ₹6L',        value: '₹3,00,000 – ₹6,00,000' },
+    { label: '₹6L – ₹15L',       value: '₹6,00,000 – ₹15,00,000' },
+    { label: '₹15L+',            value: '₹15,00,000+' },
   ];
 
   const timelineOptions = [
@@ -89,22 +92,28 @@ export default function ProjectPlanner() {
 
     try {
       const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `New Project Inquiry from ${formData.name} — Talista Studios`,
+        from_name: 'Talista Studios Website',
         name: formData.name,
         email: formData.email,
-        brand: formData.brand,
+        replyto: formData.email,
+        brand: formData.brand.trim() || 'Not Specified',
         services: selectedServices.join(', '),
         budget: budgetTier,
         timeline,
-        details: formData.details,
+        message: formData.details.trim() || 'No additional details provided.',
       };
 
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      if (res.ok) {
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result.success) {
         confetti({
           particleCount: 100,
           spread: 60,
@@ -118,7 +127,7 @@ export default function ProjectPlanner() {
         const body = encodeURIComponent(
           `Name: ${formData.name}\nEmail: ${formData.email}\nBrand: ${formData.brand}\nServices: ${selectedServices.join(', ')}\nBudget: ${budgetTier}\nTimeline: ${timeline}\n\n${formData.details}`
         );
-        window.location.href = `mailto:hello@talista.in?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:Hello.talistadesigns@gmail.com?subject=${subject}&body=${body}`;
         setIsSubmitted(true);
       }
     } catch {
@@ -127,7 +136,7 @@ export default function ProjectPlanner() {
       const body = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\nBrand: ${formData.brand}\nServices: ${selectedServices.join(', ')}\nBudget: ${budgetTier}\nTimeline: ${timeline}\n\n${formData.details}`
       );
-      window.location.href = `mailto:hello@talista.in?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:Hello.talistadesigns@gmail.com?subject=${subject}&body=${body}`;
       setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);
