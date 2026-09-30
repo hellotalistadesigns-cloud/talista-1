@@ -13,6 +13,8 @@ import { useEffect } from 'react';
  */
 export function useScrollReveal() {
   useEffect(() => {
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth <= 768 || window.matchMedia('(pointer: coarse)').matches);
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,8 +25,9 @@ export function useScrollReveal() {
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -30px 0px',
+        // Positive margin pre-warms rendering 120px before entering viewport (zero scroll lag)
+        threshold: isMobile ? 0.01 : 0.05,
+        rootMargin: isMobile ? '150px 0px 100px 0px' : '80px 0px 40px 0px',
       }
     );
 

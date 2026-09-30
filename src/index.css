@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap');
+/* Google Fonts loaded asynchronously in index.html with preconnect and display=swap */
 
 :root {
   color-scheme: dark;
@@ -534,6 +534,7 @@ select option {
     will-change: auto !important;
   }
 
+  .reveal,
   .card-reveal,
   .apple-cards-grid > .card-reveal:nth-child(odd),
   .apple-cards-grid > .card-reveal:nth-child(even),
@@ -544,17 +545,27 @@ select option {
   .about-spec-grid > .card-reveal:nth-child(3n+2),
   .about-spec-grid > .card-reveal:nth-child(3n+3) {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.5s ease-out,
-                transform 0.5s ease-out !important;
+    transform: translateY(16px);
+    transition: opacity 0.28s ease-out,
+                transform 0.28s ease-out !important;
   }
 
+  .reveal.revealed,
   .card-reveal.revealed,
   .revealed.card-reveal,
   .revealed .card-reveal {
     opacity: 1 !important;
     transform: translateY(0) !important;
     will-change: auto;
+  }
+
+  /* Eliminate artificial stagger delays on touch devices for instant rendering */
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .reveal-delay-4,
+  .reveal-delay-5 {
+    transition-delay: 0s !important;
   }
 
   /* Disable continuous sheen animation on mobile to save GPU cycles and prevent iOS crash */

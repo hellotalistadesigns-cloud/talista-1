@@ -61,7 +61,7 @@ export default function CapabilitiesBento({ onOpenPlanner }) {
                   src={cap.image}
                   alt={cap.title}
                   className="discipline-img curtain-img"
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
                 />
                 <div className="discipline-img-overlay" />
