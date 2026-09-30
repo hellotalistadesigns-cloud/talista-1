@@ -117,15 +117,23 @@ export default function Navbar({ theme, toggleTheme, onOpenPlanner, onNavigate }
           aria-label="Talista Studios"
           onClick={(e) => handleLinkClick(e, 'hero')}
         >
-          <svg className="apple-logo-icon" width="24" height="24" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="#121214" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+          <svg className="apple-logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#121214" stroke="rgba(255,255,255,0.14)" strokeWidth="1" />
             <defs>
               <linearGradient id="navGreyT" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#EDEDF0" />
-                <stop offset="100%" stopColor="#A1A1AA" />
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="100%" stopColor="#C4C4C8" />
               </linearGradient>
             </defs>
-            <path d="M7 7h18v4.5h-6.5v13.5h-5v-13.5H7V7z" fill="url(#navGreyT)" />
+            <text
+              x="16"
+              y="23.5"
+              textAnchor="middle"
+              className="logo-bodoni-monogram"
+              fill="url(#navGreyT)"
+            >
+              T
+            </text>
           </svg>
           <span className="apple-brand-text">Talista</span>
         </a>

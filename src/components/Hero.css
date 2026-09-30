@@ -23,11 +23,12 @@
 /* 1. Quiet Studio Eyebrow */
 .clean-hero-eyebrow {
   display: inline-block;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  letter-spacing: 0.08em;
+  font-family: var(--font-bodoni);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #c23348;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 24px;
 }
 

@@ -30,13 +30,10 @@
 .apple-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--ink);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-  opacity: 0.9;
+  opacity: 0.94;
   transition: opacity 0.2s ease;
 }
 
@@ -45,12 +42,30 @@
 }
 
 .apple-logo-icon {
-  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.logo-bodoni-monogram {
+  font-family: var(--font-bodoni);
+  font-size: 21px;
+  font-weight: 700;
+  user-select: none;
+}
+
+[data-theme="light"] .apple-logo-icon rect {
+  fill: #ffffff;
+  stroke: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .logo-bodoni-monogram {
+  fill: #1d1d1f;
 }
 
 .apple-brand-text {
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-bodoni);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
 }
 
 .apple-nav-links {

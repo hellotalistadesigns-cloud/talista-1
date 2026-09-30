@@ -2,14 +2,24 @@
   <!-- Dark Charcoal Squircle to ensure contrast on both light and dark Chrome tabs -->
   <rect width="32" height="32" rx="8" fill="#121214"/>
   
-  <!-- Linear Gradient for a Premium Titanium Grey Finish -->
+  <!-- Linear Gradient for a Premium Titanium Metallic Finish -->
   <defs>
     <linearGradient id="greyT" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#EDEDF0"/>
-      <stop offset="100%" stop-color="#A1A1AA"/>
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#C4C4C8"/>
     </linearGradient>
   </defs>
 
-  <!-- Precision-engineered Capital T -->
-  <path d="M7 7h18v4.5h-6.5v13.5h-5v-13.5H7V7z" fill="url(#greyT)"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&amp;display=swap');
+    .bodoni-favicon {
+      font-family: 'Bodoni 72', 'Bodoni Moda', 'Didot', 'Bodoni MT', serif;
+      font-weight: 700;
+      font-size: 21px;
+      user-select: none;
+    }
+  </style>
+
+  <!-- Bodoni Monogram T -->
+  <text x="16" y="23.5" text-anchor="middle" class="bodoni-favicon" fill="url(#greyT)">T</text>
 </svg>
