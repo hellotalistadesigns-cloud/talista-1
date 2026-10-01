@@ -987,7 +987,7 @@
     font-size: 1.35rem;
   }
 
-  /* Visual Archive Phone Layout */
+  /* Visual Archive Phone Layout: Editorial 2-Column Lookbook */
   .archive-badge-banner {
     font-size: 0.76rem;
     padding: 6px 14px;
@@ -997,11 +997,37 @@
     line-height: 1.4;
   }
   .visual-archive-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .archive-item-card {
+    border-radius: var(--radius-sm);
   }
   .archive-card-caption {
-    padding: 14px 16px 18px;
+    padding: 10px 12px 14px;
+  }
+  .archive-meta-top {
+    margin-bottom: 4px;
+  }
+  .archive-cat-pill {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+  }
+  .archive-num {
+    font-size: 0.65rem;
+  }
+  .archive-item-title {
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+  .archive-item-desc {
+    display: none;
+  }
+  .archive-client-name {
+    font-size: 0.70rem;
+    margin-top: 2px;
   }
 
   /* Lightbox Phone Layout */

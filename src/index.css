@@ -518,74 +518,72 @@ select option {
   will-change: auto;
 }
 
-/* Tablet & Mobile touch animation enhancements (Zero WebKit VRAM overflow) */
-@media (max-width: 1024px) {
+/* Tablet & Mobile High-End Editorial Mode (Zero Animation Delay / Instant 0ms Paint) */
+@media (max-width: 1024px), (pointer: coarse) {
   .reveal,
+  .card-reveal,
   .mask-inner,
-  .card-reveal,
-  .apple-cards-grid > .card-reveal:nth-child(odd),
-  .apple-cards-grid > .card-reveal:nth-child(even),
-  .disciplines-grid > .card-reveal:nth-child(3n+1),
-  .disciplines-grid > .card-reveal:nth-child(3n+2),
-  .disciplines-grid > .card-reveal:nth-child(3n+3),
-  .about-spec-grid > .card-reveal:nth-child(3n+1),
-  .about-spec-grid > .card-reveal:nth-child(3n+2),
-  .about-spec-grid > .card-reveal:nth-child(3n+3) {
+  .mask-line,
+  .roll-text,
+  .roll-text.clone,
+  .hero-anim-1,
+  .hero-anim-3,
+  .hero-anim-4,
+  .apple-cards-grid > .card-reveal,
+  .disciplines-grid > .card-reveal,
+  .about-spec-grid > .card-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
     will-change: auto !important;
-  }
-
-  .reveal,
-  .card-reveal,
-  .apple-cards-grid > .card-reveal:nth-child(odd),
-  .apple-cards-grid > .card-reveal:nth-child(even),
-  .disciplines-grid > .card-reveal:nth-child(3n+1),
-  .disciplines-grid > .card-reveal:nth-child(3n+2),
-  .disciplines-grid > .card-reveal:nth-child(3n+3),
-  .about-spec-grid > .card-reveal:nth-child(3n+1),
-  .about-spec-grid > .card-reveal:nth-child(3n+2),
-  .about-spec-grid > .card-reveal:nth-child(3n+3) {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.28s ease-out,
-                transform 0.28s ease-out !important;
   }
 
   .reveal.revealed,
   .card-reveal.revealed,
   .revealed.card-reveal,
-  .revealed .card-reveal {
+  .revealed .card-reveal,
+  .mask-inner.revealed,
+  .revealed .mask-inner {
     opacity: 1 !important;
-    transform: translateY(0) !important;
-    will-change: auto;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 
-  /* Eliminate artificial stagger delays on touch devices for instant rendering */
+  /* Eliminate artificial stagger delays on touch devices */
   .reveal-delay-1,
   .reveal-delay-2,
   .reveal-delay-3,
   .reveal-delay-4,
-  .reveal-delay-5 {
+  .reveal-delay-5,
+  .mask-delay-1,
+  .mask-delay-2 {
     transition-delay: 0s !important;
+    animation-delay: 0s !important;
   }
 
-  /* Disable continuous sheen animation on mobile to save GPU cycles and prevent iOS crash */
+  /* Disable continuous sheen animation on mobile */
   .card-reveal.revealed.sheen-card::after,
   .revealed .card-reveal.sheen-card::after,
-  .about-studio-banner.sheen-card::after {
+  .about-studio-banner.sheen-card::after,
+  .clean-showcase-frame.sheen-card::after {
     display: none !important;
     animation: none !important;
   }
 
-  /* Tactile touch response on phone */
+  /* Luxury tactile touch feedback on phone */
   .apple-showcase-card:active,
   .discipline-card:active,
   .about-spec-card:active,
   .clean-showcase-frame:active,
   .btn-primary:active,
   .btn-studio-commission:active,
-  .apple-tab:active {
-    transform: scale(0.97) !important;
-    transition: transform 0.12s ease !important;
+  .apple-tab:active,
+  .archive-item-card:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
   }
 }
 
