@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { X, CheckCircle2, ChevronRight, ArrowUpRight, Play } from 'lucide-react';
 import './CaseStudyModal.css';
 
 export default function CaseStudyModal({ project, onClose, onStartProject }) {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
   const [selectedImage, setSelectedImage] = useState(project?.image);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     setSelectedImage(project?.image);
     setIsPlayingVideo(false);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = 0;
+    }
   }, [project]);
 
   useEffect(() => {
@@ -23,11 +27,17 @@ export default function CaseStudyModal({ project, onClose, onStartProject }) {
     };
   }, [onClose]);
 
+  const handleWheel = (e) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop += e.deltaY;
+    }
+  };
+
   if (!project) return null;
 
   return (
-    <div className="apple-modal-backdrop" onClick={onClose}>
-      <div className="apple-modal-sheet glass-card" onClick={(e) => e.stopPropagation()}>
+    <div className="apple-modal-backdrop" onClick={onClose} onWheel={handleWheel} data-lenis-prevent="true" data-lenis-prevent>
+      <div className="apple-modal-sheet glass-card" onClick={(e) => e.stopPropagation()} data-lenis-prevent="true" data-lenis-prevent>
 
         {/* Apple Close Pill Button */}
         <button className="apple-sheet-close" onClick={onClose} aria-label="Close">
@@ -35,7 +45,7 @@ export default function CaseStudyModal({ project, onClose, onStartProject }) {
         </button>
 
         {/* Modal Scroll Content */}
-        <div className="apple-modal-scroll">
+        <div className="apple-modal-scroll" ref={scrollRef} data-lenis-prevent="true" data-lenis-prevent>
 
           {/* Media Header */}
           <div className="modal-hero-frame">

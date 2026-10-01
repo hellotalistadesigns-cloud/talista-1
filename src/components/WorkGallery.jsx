@@ -335,8 +335,8 @@ export default function WorkGallery({ onSelectProject }) {
 
       {/* Lightbox Modal for Visual Archive */}
       {lightboxItem && (
-        <div className="apple-modal-backdrop" onClick={() => setLightboxItem(null)}>
-          <div className="apple-modal-sheet lightbox-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="apple-modal-backdrop" onClick={() => setLightboxItem(null)} data-lenis-prevent="true" data-lenis-prevent>
+          <div className="apple-modal-sheet lightbox-modal" onClick={(e) => e.stopPropagation()} data-lenis-prevent="true" data-lenis-prevent>
             <button
               className="apple-sheet-close"
               onClick={() => setLightboxItem(null)}
@@ -345,7 +345,7 @@ export default function WorkGallery({ onSelectProject }) {
               <X size={16} />
             </button>
 
-            <div className="lightbox-content-box">
+            <div className="lightbox-content-box" data-lenis-prevent="true" data-lenis-prevent>
               <div className="lightbox-image-stage">
                 <img
                   src={lightboxItem.image}
