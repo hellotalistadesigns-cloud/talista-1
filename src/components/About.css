@@ -3,7 +3,7 @@
    ============================================================ */
 
 .clean-about-section {
-  padding: 100px 0;
+  padding: 120px 0 140px;
   border-top: 1px solid var(--line);
   background: var(--bg-secondary);
   position: relative;
@@ -164,7 +164,7 @@
 /* Responsive */
 @media (min-width: 681px) and (max-width: 1024px) {
   .clean-about-section {
-    padding: 85px 0;
+    padding: 90px 0 100px;
   }
 
   .studio-banner-img-wrap {
@@ -196,7 +196,7 @@
 
 @media (max-width: 680px) {
   .clean-about-section {
-    padding: 65px 0;
+    padding: 70px 0 80px;
   }
 
   .studio-banner-img-wrap {

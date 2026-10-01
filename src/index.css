@@ -472,13 +472,13 @@ select option {
 }
 
 /* ============================================================
-   Cinematic 3D Card Fly-In Physics
+   Cinematic 3D Card Fly-In Physics (Refined Elevation)
    ============================================================ */
 .card-reveal {
   opacity: 0;
-  transform: perspective(1200px) translate3d(0, 120px, -60px) rotateX(16deg) scale(0.88);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+  transform: perspective(1200px) translate3d(0, 32px, -20px) rotateX(8deg) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.45s ease,
               border-color 0.35s ease;
   will-change: opacity, transform;
@@ -486,27 +486,27 @@ select option {
 
 /* Staggered directional entry for showcase cards */
 .apple-cards-grid > .card-reveal:nth-child(odd) {
-  transform: perspective(1200px) translate3d(-40px, 120px, -60px) rotateX(16deg) rotateY(-6deg) scale(0.88);
+  transform: perspective(1200px) translate3d(-20px, 32px, -20px) rotateX(8deg) rotateY(-4deg) scale(0.96);
 }
 
 .apple-cards-grid > .card-reveal:nth-child(even) {
-  transform: perspective(1200px) translate3d(40px, 120px, -60px) rotateX(16deg) rotateY(6deg) scale(0.88);
+  transform: perspective(1200px) translate3d(20px, 32px, -20px) rotateX(8deg) rotateY(4deg) scale(0.96);
 }
 
 /* Staggered directional entry for 3-column disciplines & about */
 .disciplines-grid > .card-reveal:nth-child(3n+1),
 .about-spec-grid > .card-reveal:nth-child(3n+1) {
-  transform: perspective(1200px) translate3d(-45px, 120px, -60px) rotateX(16deg) rotateY(-7deg) scale(0.88);
+  transform: perspective(1200px) translate3d(-20px, 32px, -20px) rotateX(8deg) rotateY(-4deg) scale(0.96);
 }
 
 .disciplines-grid > .card-reveal:nth-child(3n+2),
 .about-spec-grid > .card-reveal:nth-child(3n+2) {
-  transform: perspective(1200px) translate3d(0px, 130px, -60px) rotateX(16deg) scale(0.88);
+  transform: perspective(1200px) translate3d(0px, 32px, -20px) rotateX(8deg) scale(0.96);
 }
 
 .disciplines-grid > .card-reveal:nth-child(3n+3),
 .about-spec-grid > .card-reveal:nth-child(3n+3) {
-  transform: perspective(1200px) translate3d(45px, 120px, -60px) rotateX(16deg) rotateY(7deg) scale(0.88);
+  transform: perspective(1200px) translate3d(20px, 32px, -20px) rotateX(8deg) rotateY(4deg) scale(0.96);
 }
 
 /* When revealed: swoops up and snaps into full perspective */
