@@ -503,20 +503,27 @@
 .card-image-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background: #0a0a0c;
+  aspect-ratio: 16 / 11;
+  background: #08080a;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="light"] .card-image-box {
+  background: #eaebee;
 }
 
 .card-product-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .apple-showcase-card:hover .card-product-img {
-  transform: scale(1.06);
+  transform: scale(1.025);
 }
 
 .card-info-box {
@@ -687,11 +694,15 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #0d0e12;
+  background: #090a0d;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+[data-theme="light"] .archive-img-wrap {
+  background: #eaebee;
 }
 
 .archive-aspect-landscape .archive-img-wrap {
@@ -705,12 +716,13 @@
 .archive-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  object-fit: contain;
+  padding: 4px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .archive-item-card:hover .archive-img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .archive-hover-overlay {
