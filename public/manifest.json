@@ -1,0 +1,17 @@
+{
+  "name": "Talista Studios — Brand Identity, 3D Motion & Digital Experience",
+  "short_name": "Talista",
+  "description": "Premier creative agency specializing in brand identity, packaging design, 3D motion graphics, AI video ads, and bespoke web development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

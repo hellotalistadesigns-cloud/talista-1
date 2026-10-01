@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# Sitemaps & Host
+Host: https://talista.in
 Sitemap: https://talista.in/sitemap.xml

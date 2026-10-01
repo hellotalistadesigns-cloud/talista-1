@@ -1,39 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://talista.in/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://talista.in/assets/the-hooper.jpg</image:loc>
+      <image:title>The Hooper — Brand Identity and Editorial System by Talista Studios</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://talista.in/assets/flora-botanica.jpg</image:loc>
+      <image:title>Flora Botanica — Organic Botanical Elixirs and Luxury Packaging Design</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://talista.in/assets/velocity-motion.jpg</image:loc>
+      <image:title>Velocity Motion — 3D Liquid Gold Visuals and AI Video Ads</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://talista.in/assets/aurelius-digital.jpg</image:loc>
+      <image:title>Aurelius Architecture — Immersive Digital Platform</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://talista.in/assets/portfolio/cupcake-cafe-01.jpg</image:loc>
+      <image:title>Cupcakes Café — The Home of Happiness In-Store Signage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://talista.in/assets/portfolio/pet-food-packaging.jpg</image:loc>
+      <image:title>Happy Dog Nutrition — Wholesome Pet Food Packaging</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://talista.in/#work</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://talista.in/#capabilities</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://talista.in/#process</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://talista.in/#about</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://talista.in/#contact</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 </urlset>
