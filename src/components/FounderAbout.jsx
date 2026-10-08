@@ -12,7 +12,7 @@ export default function FounderAbout() {
   return (
     <section className="apple-about-section" id="about">
       <div className="layout-wrap apple-about-grid">
-        
+
         {/* Left Story Column */}
         <div className="about-narrative reveal">
           <span className="section-label">OUR PHILOSOPHY</span>
@@ -69,13 +69,13 @@ export default function FounderAbout() {
                 <Globe size={15} />
                 <span>talista.in</span>
               </a>
-              <a href="https://instagram.com/talistadesigns" target="_blank" rel="noopener noreferrer" className="founder-channel-link">
+              <a href="https://instagram.com/talista.in" target="_blank" rel="noopener noreferrer" className="founder-channel-link">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                 </svg>
-                <span>@talistadesigns</span>
+                <span>@talista.in</span>
               </a>
             </div>
           </div>
